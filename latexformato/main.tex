@@ -1,0 +1,171 @@
+\documentclass[12pt,spanish, singlespacing,]{MastersDoctoralThesis}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage[none]{hyphenat}
+\usepackage{palatino} 
+\usepackage{acronym}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage[caption = false]{subfig}
+\spacing{1.5}
+\usepackage[acronym,nomain]{glossaries}
+%\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex}
+%\addbibresource{main.bib}
+\usepackage[autostyle=true]{csquotes}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{smartdiagram}
+\usepackage{afterpage}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=4cm, minimum height=1.5cm,text centered, draw=black, fill=blue!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{0}%
+    \newpage}
+    
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Código}
+\renewcommand\lstlistlistingname{Índice de Código}
+
+\usepackage{float}
+\usepackage{url}
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
+
+\thesistitle{}
+\supervisor{} 
+\examiner{} 
+\degree{} 
+\author{} 
+\subject{}
+\keywords{} 
+\university{\href{http://www.uni.edu.pe/}{Universidad Nacional de Ingenier\'ia}} 
+\department{\href{http://fc.uni.edu.pe/fc/index.php/escuelas/ciencia-de-la-computacion}{}} 
+\faculty{\href{http://fc.uni.edu.pe/fc/}{}}
+\hypersetup{pdftitle=\ttitle} 
+\hypersetup{pdfauthor=\authorname}
+\hypersetup{pdfkeywords=\keywordnames} 
+\sloppy
+\decimalpoint
+\begin{document}
+\frontmatter 
+\pagestyle{plain} 
+\begin{titlepage}
+\begin{center}
+%\textsc{\huge \univname}\\[0.5cm]
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.3\textwidth]{Figures/log_uni.png}
+\end{figure}
+
+\textsc{\huge \univname}\\[0.3cm]
+\textsc{\Large Facultad de Ciencias}\\[0.2cm]
+\textsc{\large Escuela Profesional de Ciencia de la Computaci\'on}\\[2cm]
+\textsc{\LARGE \textit{Conversión de voz en texto usando redes neuronales}}\\[2cm] 
+{\Large \textbf{SEMINARIO DE TESIS 2}}
+{\huge \bfseries \ttitle}\\[2cm] 
+% Thesis title
+%\bigskip
+%\HRule \\[0.8cm] % Horizontal line
+
+%\begin{minipage}{1.5\textwidth}
+%\begin{flushleft} \large
+\bigskip
+\bigskip
+\large\emph{Autor: Víctor Jesús Sotelo Chico}
+{\authorname}\\ 
+\large\emph{Asesor: Antonio Morán Cardenas}
+{\supname} 
+%\end{flushleft}
+%\end{minipage}
+%\\[2cm]
+\\[1cm]
+{\large Diciembre, 2018}\\[4cm] 
+ 
+\vfill
+\end{center}
+\end{titlepage}
+\afterpage{\blankpage}
+%\cleardoublepage
+%\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+\addchaptertocentry{\abstractname}
+En las últimas décadas el campo de la inteligencia artificial se ha desarrollado rápidamente. Estudios sobre reconocimiento de imágenes y voz han sido estudiados en las últimas décadas. Actualmente este campo requiere realizar un gran números de cálculos para entrenar redes neuronales que sean capaces de distinguir y clasificar distintos objetos contenidos en imágenes. Incluso este proceso puede tardar más dependiendo del tamaño del dataset. Por lo cual surge la necesidad de encontrar métodos que permitan acelerar el proceso de entrenamiento de las redes neuronales.\\
+Por tal motivo presente seminario buscar lograr un mayor entendimiento de métodos para acelerar el proceso de entrenamiento de una red neuronal convolucional, basándonos en la teoría de redes neuronales y usando como herramienta la librería tensorflow, esta nos permite un uso controlado de las métodos de optimización.
+
+\textbf{KEYWORDS}:  Dataset, Métodos Adaptativos, CNN, SGD, Optimizadores.
+\end{abstract}\hspace{10pt}
+
+\keywords{agasga}
+
+
+\afterpage{\blankpage}
+\tableofcontents
+%\afterpage{\blankpage}
+\listoffigures
+%\afterpage{\blankpage}
+%\listoftables
+%\afterpage{\blankpage}
+%\listoftables 
+%\lstlistoflistings
+%\afterpage{\blankpage}
+\newpage
+
+\begin{center}
+{\huge Índice de Acrónimos}\\[2cm]
+\end{center}
+\bigskip
+\begin{tabular}{ l c l }
+\textbf{k-nn}& & k- nearest neighbors\\
+\textbf{SVM}& & Super Vector Machine\\
+\textbf{SVC}& & Super Vector Regression\\
+\textbf{SVR}& & Super Vector Classification\\
+\textbf{SGD} & & Stochastic gradient descent\\
+\textbf{DNN} & & Deep Neural Network\\
+\textbf{CNN} & & Convolutional Neural Network\\
+\textbf{ETC} & & Etcétera \\
+
+\end{tabular}
+\afterpage{\blankpage}
+
+\newpage
+\begin{center}
+{\huge \textit{Agradecimientos}}\\[1.5cm]
+\end{center}
+
+Agradezco a mis padres por todo el apoyo incondicional durante todos estos años de estudio, a mis compañeros de clase por el apoyo brindado durante el tiempo de estudio y a mi asesor por ayudarme en este seminario.
+
+
+
+\afterpage{\blankpage}
+
+\mainmatter 
+\pagestyle{thesis}
+\input{Chapters/Cap1}
+%\newpage
+%$\ $
+%\thispagestyle{empty} % para que no se numere esta pagina
+\input{Chapters/Cap2}
+%\newpage
+$\ $
+%\thispagestyle{empty} % para que no se numere esta pagina
+\input{Chapters/Cap3}
+%\newpage
+$\ $
+%\thispagestyle{empty} % para que no se numere esta pagina
+\input{Chapters/Cap4}
+%\newpage
+$\ $
+%\thispagestyle{empty} % para que no se numere esta pagina
+\input{Chapters/Cap5}
+\input{Chapters/Cap6}
+\bibliography{main}
+\bibliographystyle{unsrt}
+\afterpage{\blankpage}
+\appendix
+\input{Appendix/AppendixA}
+
+\end{document}

@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+The style file: unsrt.bst
+Database file #1: main.bib
+Name 1 in "Franco Ronchetti, Facundo Quiroga, César Estrebou, and Laura Lanzarini" has a comma at the end for entry HAND
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Quoc V. Le, Jiquan Ngiam, Adam Coates, Abhik Lahiri, Bobby Prochnow and Andrew Y. Ng" for entry Optimization
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Quoc V. Le, Jiquan Ngiam, Adam Coates, Abhik Lahiri, Bobby Prochnow and Andrew Y. Ng" for entry Optimization
+while executing---line 944 of file unsrt.bst
+You've used 18 entries,
+            1791 wiz_defined-function locations,
+            559 strings with 6379 characters,
+and the built_in function-call counts, 3281 in all, are:
+= -- 311
+> -- 84
+< -- 6
++ -- 38
+- -- 20
+* -- 123
+:= -- 476
+add.period$ -- 61
+call.type$ -- 18
+change.case$ -- 18
+chr.to.int$ -- 0
+cite$ -- 18
+duplicate$ -- 159
+empty$ -- 376
+format.name$ -- 20
+if$ -- 802
+int.to.chr$ -- 0
+int.to.str$ -- 18
+missing$ -- 8
+newline$ -- 99
+num.names$ -- 14
+pop$ -- 89
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 94
+stack$ -- 0
+substring$ -- 119
+swap$ -- 53
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 29
+width$ -- 20
+write$ -- 201
+(There were 3 error messages)
