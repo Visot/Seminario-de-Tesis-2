@@ -9,11 +9,6 @@ Este trabajo también presentará investigaciones referentes a Aprendizaje Profu
 
 %---En este capítulo van a ir muchas citas \cite{Wan09} de trabajos pero sobre todo de artículos científico, haga un buen estudio del arte \cite{Shuo10,Feldmann03}
 
-
-\section{GPU computing}
-Actualmente, el uso de GPU's permitió lograr aplicaciones que antes se podrían creer imposibles debido a su largo tiempo de ejecución. Hoy en día las GPUs son altamente usadas ya que cuentan con cientos de núcleos de procesadores en paralelo que permiten resolver rápidamente los problemas que son altamente paralelizables.
-\subsection{The GPU computing Era}
-	El artículo se enfoca principalmente en describir la evolución que sufrieron las arquitecturas de GPUs, además de mostrar la importancia del uso de las GPUs para un mayor rendimiento y eficiencia que antes hubiesen sido consideradas imposibles debido al alto tiempo de ejecución que requerían. Además nos muestra que la escalabilidad es la principal característica que ha permito que las GPUs aumenten su paralelismo y rendimiento.
 \section{Aprendizaje Automático}
 El uso del Aprendizaje Automático representa una gran ventaja para empresas que manejan gran cantidad de datos debido a que permiten descubrir patrones y analizar los datos.
 
@@ -32,22 +27,11 @@ En este paper presenta una introducción a los temas de \textit{Convolutional Ne
 Por otro lado, también nos muestra las aplicaciones del aprendizaje profundo como: análisis de documentos, detección de voz, rostro, procesamiento natural del lenguaje, etc.
 
 La aplicación de la inteligencia artificial no solo despierto en los investigadores, también existen algunas empresas privadas que apoyan el campo del Aprendizaje Profundo con el objetivo de buscar sus aplicaciones comerciales, entre estas empresas tenemos a: Numenta y Binatix.
-\section{Métodos de optimización}
-El campo del Aprendizaje Automático continuamente evoluciona y con esta evolución surgen nuevas necesidades. Al trabajar con grandes conjuntos de datos se buscan cada vez obtener buenos resultados sin afectar el rendimiento. Una forma de lograr esto es mediante el uso de algoritmos de optimización.
-\subsection{Neural Network Optimization Algorithms: A comparison study based on TensorFlow}
-Vadim Smolyakov\cite{WEBSITE:11} realizo un estudio comparativo de diversos optimizadores entre los cuales se encuentran el método de gradiente de descenso estocástica, Nesterov Momentum, RMSProp y Adam. Se realizó una prueba comparativa con una arquitectura simple de CNN usando el conjunto de datos del MNIST. \textquotedblleft Se comparó diferentes optimizadores y se obtuvo que el SGD con Nesterov y Adam producen mejores resultados en el entrenamiento de una CNN simple usando tensorflow para el dataset MNIST. \textquotedblright \cite{WEBSITE:11}
+
 \subsection{On Optimization Methods for Deep Learning}
 Un equipo de la Universidad de Standford realizó unas pruebas con el objetivo de encontrar métodos adecuados para un entrenamiento en aprendizaje profundo. El equipo se percato de lo común que resulta el uso de gradiente de descenso estocástica (SGD por sus siglas en inglés) en aprendizaje profundo . Se realizaron pruebas con otros métodos de optimización como la gradiente conjugada y Limited memmory BFGS(L-BFGS) los cuales permitieron acelerar el proceso de entrenamiento de algoritmos de Aprendizaje Profundo mostrando en su mayoría mejores resultados que el SGD. \textquotedblleft Usando L-BFGS el modelo CNN alcanza el 0.69\%  en el estándar del MNIST dataset. \textquotedblright \cite{Optimization}
 
-\subsection{Adam : A method for stochastic optimization}
-Esta investigación fue la primera en plantear el método Adam para acelerar la gradiente de descenso. Fue propuesto por Diederik P. Kingma de la Universidad de Amsterdam y Jimmy Lei Ba de la Universidad de Toronto. Ellos describen el método Adam como un método sencillo de implementar, además que este utiliza pocos requisitos de memoria.
-\textquotedblleft Nuestro método esta dirigido a problemas con grandes conjunto de datos y espacio de parámetros de alta dimensión. El método combina ventajas de otros métodos de optimización, la capacidad de Adagrad para manejar gradientes dispersos y la de RMSProp para tratar con objetivos no estacionarios\textquotedblright \cite{ADAM}
-\vspace{2cm}
-\subsection{Incorporating Nesterov Momentum into Adam}
-Este trabajo fue realizado por Timothy Dozat de la Universidad de Stanford, en este paper se propone una mejora al método Adam modificando su componente de momento de esta manera se obtiene una convergencia más rápida.
 
-\textquotedblleft Esencialmente la investigación muestra cómo combinar el momento clásico con una tasa de aprendizaje adaptativa. Este trabajo lleva un enfoque más allá de la investigación y mejora uno de los componentes principales sin aumentar la complejidad del algoritmo\textquotedblright \cite{NMIA}
-\vspace{2cm}
 \section{Reconocimiento de Voz}
 \subsection{Review of Algorithms and Applications in Speech Recognition System}
 Este trabajo fue realizado por CR Rashmi del \textit{ Cork Institute of Tecnology (CIT) } en la investigación se describe el reconocimiento del habla como un método poder realizar distintas aplicaciones como: reconocimiento del hablante(Identificación Biométrica), emociones, acento, etc. Además se presentan distintos algoritmos que usan transformada de fourier y modelos probabilísticos que son aplicados a tareas de reconocimiento de voz.\\ Esta investigación se centra en los algoritmos para la extracción de características y coincidencia de patrones.\\ Entre principales algoritmos para la extracción de características que muestran tenemos: RCC, MFCC, LPC, etc. Siendo el MFCC uno de los mejores para realizar tareas de reconocimiento del hablante. Por otro lado en coincidencia de patrones tenemos algoritmos como VQ, HMM, SVM, MLP, GMM, etc. Para tareas de reconocimiento de emociones y géneros destaca el GMM.
@@ -64,7 +48,10 @@ El presente paper fue realizado por Kshitiz Kumar  , Chanwoo Kim y Richard M. St
 \subsection{Voice Recognition Algorithms using Mel Frequency Cepstral Coefficient (MFCC) and Dynamic Time Warping (DTW) Techniques
 }
 Esta investigación fue realizada por Lindasalwa Muda, Mumtaj Begam y I. Elamvazuthi, en esta se describen los principios involucrados en el reconocimiento de voz como la extracción de características y patrones. Al igual que otras investigaciones los autores afirman \textquotedblleft \textit{La voz es una señal de infinita información. Un análisis directo y sintetizado es requerido para la gran cantidad de señal contenida en la señal.} \textquotedblright \\ El reconocimiento de voz puede ser divido en 2 fases una fase de entrenamiento en que el hablante provee información o muestras de su voz y una fase de testeo donde se verifica que la voz de entrada coincida con la del hablante del proceso de entrenamiento.	Los investigadores utilizan MFCC para la extracción de características y DTW para reconocimiento de los patrones. En las pruebas de identificación se logro encontrar una distorsión optima en DTW que permitió reconocer al hablante.
-
+\subsection{Convolutional Neural Networks for Speech Recognition}
+Entre los distintos modelos existentes en redes neuronales profundas ha surgido la necesidad de realizar modelos híbridos como \textit{Deep Neural Network- Hidden Markov Model(DNN-HMM)} y \textit{Gaussian Mixture Model - Hidden Markov Model(GMM-HMM)}. La presente investigación encontró que la primera es más robusta debido a la capacidad que poseen las redes neuronales al momento de modelar correlaciones complejas de las características de la voz.\\ Los resultados mostraron que usando CNN se obtuvo una mejora de 6-10 \% en tareas de phone recognition y búsqueda de voz en un gran vocabulario.
+\subsection{TIME-FREQUENCY CONVOLUTIONAL NETWORKS FOR ROBUST SPEECH RECOGNITION}
+Este estudio usa a las redes neuronales convolucionales profundas(DCNN) para generar una arquitectura más robusta contra el ruido y otras variaciones del entorno. DCNN usa los filtros de convolución para así poder remover las distorciones cross-spectral una cualidad de este tipo de red es que no utiliza la convolución sobre el tiempo. Por lo cual esta convolución es trata en esta investigación definiendo un esquema llamado time-frequency convolutional network (TFCNN), esta red aplica 2 capas de convolución paralelas una para la frecuencia y otra para el tiempo.\\ En las pruebas realizadas se nota una mejora al probar con ruidos, canales y datos dañados con reverberación a comparación del uso de DCNN.
 \section{Conclusiones}
 %Hemos visto la necesidad....
 A medida que tratamos muchos problemas vemos la necesidad de encontrar optimizadores adecuados para los diferentes tipos de problemas. En el área de Aprendizaje Profundo comúnmente se trabaja en el campo de reconocimiento de imágenes.\\ A pesar de las mejoras mediante el uso de GPUs este tipo de problemas necesitan soluciones óptimos para obtener un mejor rendimiento. Métodos como Nesterov Momemtum, RMSProp y Adam surgen como principales opciones para realizar optimizaciones de la gradiente de descenso.
