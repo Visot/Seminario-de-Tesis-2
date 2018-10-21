@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  20 OCT 2018 21:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  21 OCT 2018 00:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2508,21 +2508,15 @@ File: omsppl.fd
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 27.
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
-[]\T1/ppl/m/n/12 Conocer las ven-ta-jas y des-ven-ta-jas de di-fe-ren-tes mé-to
--dos de
+Underfull \hbox (badness 4673) in paragraph at lines 31--32
+[]\T1/ppl/m/n/12 Diseñar un sis-te-ma ro-bus-to ca-paz de re-du-cir los pro-ble
+-mas de
  []
 
 
-Underfull \hbox (badness 1348) in paragraph at lines 32--33
-[]\T1/ppl/m/n/12 Mostrar los re-sul-ta-dos de dis-tin-tos mé-to-dos de op-ti-mi
--za-ción en el
- []
-
-
-Underfull \hbox (badness 3000) in paragraph at lines 32--33
-\T1/ppl/m/n/12 en-tre-na-mien-to de una red neu-ro-nal con-vo-lu-cio-nal pa-ra 
-ta-reas de
+Underfull \hbox (badness 3989) in paragraph at lines 32--33
+[]\T1/ppl/m/n/12 Mostrar los re-sul-ta-dos ob-te-ni-dos y ex-pli-car-los ba-sán
+-do-nos en la
  []
 
 
@@ -2532,57 +2526,57 @@ a-les y sus
  []
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 45.
+(babel)             in language  on input line 47.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 45.
+(babel)             in language  on input line 47.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 45.
+(babel)             in language  on input line 47.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 45.
+(babel)             in language  on input line 47.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 45.
+(babel)             in language  on input line 47.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 45.
-LaTeX Info: Redefining \. on input line 53.
-LaTeX Info: Redefining \% on input line 53.
+(babel)             in language  on input line 47.
+LaTeX Info: Redefining \. on input line 55.
+LaTeX Info: Redefining \% on input line 55.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 53.
+(babel)             in language  on input line 55.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 53.
+(babel)             in language  on input line 55.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 53.
+(babel)             in language  on input line 55.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 53.
+(babel)             in language  on input line 55.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 53.
+(babel)             in language  on input line 55.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 53.
+(babel)             in language  on input line 55.
 [4]
-Underfull \hbox (badness 1783) in paragraph at lines 57--59
+Underfull \hbox (badness 1783) in paragraph at lines 59--61
 \T1/ppl/m/n/12 En es-te ca-pí-tu-lo da-re-mos una in-tro-duc-ción ge-ne-ral al 
 Apren-di-za-je
  []
 
 
-Underfull \hbox (badness 1521) in paragraph at lines 57--59
+Underfull \hbox (badness 1521) in paragraph at lines 59--61
 \T1/ppl/m/n/12 au-to-má-ti-co y dis-tin-gui-re-mos los ti-pos de apren-di-za-je
 s que exis-ten,
  []
 
 
-Underfull \hbox (badness 1789) in paragraph at lines 59--61
+Underfull \hbox (badness 1789) in paragraph at lines 61--63
 \T1/ppl/m/n/12 En es-te ca-pí-tu-lo co-no-ce-re-mos más de un ti-po es-pe-cí-fi
 -co de re-des
  []
 
 
-Underfull \hbox (badness 1490) in paragraph at lines 63--67
+Underfull \hbox (badness 1490) in paragraph at lines 65--69
 \T1/ppl/m/n/12 En es-te ca-pí-tu-lo se plan-tean las con-clu-sio-nes y se de-ta
 -lla al-gu-nos
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--67
+Underfull \hbox (badness 10000) in paragraph at lines 65--69
 \T1/ppl/m/n/12 in-con-ve-nien-tes en-con-tra-dos du-ran-te el tra-ba-jo. Ade-má
 s que se
  []
@@ -5132,7 +5126,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  45589 strings out of 492982
  872525 string characters out of 6134895
- 1003499 words of memory out of 5000000
+ 1003497 words of memory out of 5000000
  48116 multiletter control sequences out of 15000+600000
  580318 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -5152,7 +5146,7 @@ hare/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/palatino/uplri8a.pfb>
-Output written on main.pdf (84 pages, 2173382 bytes).
+Output written on main.pdf (84 pages, 2173369 bytes).
 PDF statistics:
  1247 PDF objects out of 1440 (max. 8388607)
  1031 compressed objects within 11 object streams

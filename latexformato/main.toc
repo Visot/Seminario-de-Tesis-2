@@ -3,7 +3,7 @@
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{2}{chapter.4}
 \contentsline {section}{\numberline {1.1}Motivaci\IeC {\'o}n}{2}{section.5}
 \contentsline {section}{\numberline {1.2}Objetivos}{4}{section.6}
-\contentsline {section}{\numberline {1.3}Estructura del Seminario}{4}{section.7}
+\contentsline {section}{\numberline {1.3}Estructura del Seminario}{5}{section.7}
 \contentsline {chapter}{\numberline {2}Estado del Arte}{6}{chapter.8}
 \contentsline {section}{\numberline {2.1}Aprendizaje Autom\IeC {\'a}tico}{6}{section.9}
 \contentsline {subsection}{\numberline {2.1.1}Uso de redes neuronales para encontrar el rendimiento de una GPU}{6}{subsection.10}
