@@ -36,10 +36,10 @@
 \contentsline {subsubsection}{Fully Connected Layers}{22}{section*.47}
 \contentsline {subsection}{\numberline {3.3.3}Arquitecturas conocidas}{22}{subsection.48}
 \contentsline {section}{\numberline {3.4}Redes Recurrentes}{23}{section.49}
-\contentsline {chapter}{\numberline {4}Procesamiento se\IeC {\~n}al de voz}{25}{chapter.50}
-\contentsline {chapter}{\numberline {5}Resultados}{26}{chapter.51}
-\contentsline {chapter}{\numberline {6}Conclusiones y Trabajo Futuro}{27}{chapter.52}
-\contentsline {section}{\numberline {6.1}Conclusiones}{27}{section.53}
-\contentsline {section}{\numberline {6.2}Trabajo Futuro}{27}{section.54}
-\contentsline {chapter}{\numberline {A}Arquitectura de la red y Resultados obtenidos}{32}{appendix.56}
-\contentsline {section}{\numberline {A.1}Resultados de precisi\IeC {\'o}n de entrenamiento}{32}{section.57}
+\contentsline {chapter}{\numberline {4}Procesamiento se\IeC {\~n}al de voz}{26}{chapter.52}
+\contentsline {chapter}{\numberline {5}Resultados}{27}{chapter.53}
+\contentsline {chapter}{\numberline {6}Conclusiones y Trabajo Futuro}{28}{chapter.54}
+\contentsline {section}{\numberline {6.1}Conclusiones}{28}{section.55}
+\contentsline {section}{\numberline {6.2}Trabajo Futuro}{28}{section.56}
+\contentsline {chapter}{\numberline {A}Arquitectura de la red y Resultados obtenidos}{33}{appendix.58}
+\contentsline {section}{\numberline {A.1}Resultados de precisi\IeC {\'o}n de entrenamiento}{33}{section.59}

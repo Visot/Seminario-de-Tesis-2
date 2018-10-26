@@ -170,9 +170,31 @@ Actualmente existen algunas arquitecturas de CNN ya diseñadas que son aplicadas
 \end{itemize}
 
 \section{Redes Recurrentes}
-Las redes neuronales recurrentes aparecieron en los años 1980s pero actualmente se han desarrollado más estudios debido a la mejora de hardware. La principal diferencia de la redes con las redes neuronales prealimentadas es que las redes recurrentes mantienen los estados del uso de la red.
+Las redes neuronales recurrentes aparecieron en los años 1980s, actualmente se han desarrollado más estudios debido a la mejora de hardware. Son utilizadas principalmente para tratar con una información de secuencia, por ejemplo series de tiempo, audio, sentencia de oraciones, etc.\\ La principal diferencia de la redes con las redes neuronales feed-foward es que en las neuronas de las redes recurrentes las salidas regresan a la entrada de esta manera mantiene información de un estado anterior. Esto permite que nuestro modelo sea cambiante cada vez que este se alimente con una secuencia nueva.%%\subsubsection*{Características}
 
-%%\subsubsection*{Características}
+Dentro de una capa recurrente se tiene los siguientes tipos de conexiones :
+\begin{itemize}
+	\item  \textbf{Entrantes:} Son aquellas que emanan de la capa previa.
+	\item  \textbf{Salientes:} Estas conexiones son dirigidas a todas las neuronas de las capas consecuentes.
+	\item  \textbf{Recurrentes:} se encargan de propagar la información entre las neuronas de las misma capa.
+\end{itemize}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.3\textwidth]{Figures/rnn.png}
+	\caption{Neurona Recurrente \\ Fuente:  \href{https://cdn-images-1.medium.com/max/960/1*XB5c4rTCSeFQrK0aFC5IVw.png}{\textit{https://medium.com}}}
+	\label{}
+\end{figure}
+
+Es posible representar a la redes recurrentes como si fueran redes feed-fowards esto lo realizamos \textit{desenrrollando} la neurona como vemos en la figura 3.8 el $x_{t}$ representa un estado final de esta forma podemos representar la red como un conjunto de estados a través de un lapso de tiempo. En esta forma las técnicas de backpropagation pueden ser usadas en la redes recurrentes.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Figures/rnn2.png}
+	\caption{Versión desenrollada \\ Fuente:  \href{https://cdn-images-1.medium.com/max/960/1*XB5c4rTCSeFQrK0aFC5IVw.png}{\textit{https://medium.com}}}
+	\label{}
+\end{figure}
 %%%
 %%\begin{figure}[H]
 %%\centering
