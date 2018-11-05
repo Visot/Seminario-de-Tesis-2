@@ -9,8 +9,17 @@
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Estructura de la imagen de entrada Fuente: \href {https://www.safaribooksonline.com/library/view/deep-learning/9781491924570/ch04.html}{\textit {Deep Learning by Adam Gibson, Josh Patterson}}\relax }}{18}{figure.caption.41}
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Operacion de convoluci\IeC {\'o}n Fuente: \href {http://openresearch.ai/t/network-in-network/39}{\textit {www.openresearch.ai}}\relax }}{20}{figure.caption.45}
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Neurona Recurrente Fuente: \href {https://cdn-images-1.medium.com/max/960/1*XB5c4rTCSeFQrK0aFC5IVw.png}{\textit {https://medium.com}}\relax }}{24}{figure.caption.50}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Versi\IeC {\'o}n desenrollada Fuente: \href {https://cdn-images-1.medium.com/max/960/1*XB5c4rTCSeFQrK0aFC5IVw.png}{\textit {https://medium.com}}\relax }}{24}{figure.caption.51}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Versi\IeC {\'o}n desenrollada Fuente: \href {https://towardsdatascience.com/introduction-to-recurrent-neural-network-27202c3945f3}{\textit {https://towardsdatascience.com}}\relax }}{24}{figure.caption.51}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Funci\IeC {\'o}n sigmoid y su derivada Fuente: \href {https://cdn-images-1.medium.com/max/960/1*XB5c4rTCSeFQrK0aFC5IVw.png}{\textit {https://medium.com}}\relax }}{26}{figure.caption.54}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Estructura en cadena Fuente: \href {http://colah.github.io/posts/2015-08-Understanding-LSTMs/}{\textit {http://colah.github.io}}\relax }}{27}{figure.caption.56}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Unidad de LSTM Fuente: \href {https://towardsdatascience.com/understanding-lstm-and-its-quick-implementation-in-keras-for-sentiment-analysis-af410fd85b47g}{\textit {https://towardsdatascience.com}}\relax }}{27}{figure.caption.57}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces celda de estado Fuente: \href {http://colah.github.io/posts/2015-08-Understanding-LSTMs/}{\textit {http://colah.github.io}}\relax }}{28}{figure.caption.58}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces capa sigmoidal Fuente: \href {http://colah.github.io/posts/2015-08-Understanding-LSTMs/}{\textit {http://colah.github.io}}\relax }}{28}{figure.caption.60}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces capa tanh Fuente: \href {http://colah.github.io/posts/2015-08-Understanding-LSTMs/}{\textit {http://colah.github.io}}\relax }}{29}{figure.caption.65}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Actualizaci\IeC {\'o}n del $C_{t}$ Fuente: \href {http://colah.github.io/posts/2015-08-Understanding-LSTMs/}{\textit {http://colah.github.io}}\relax }}{29}{figure.caption.68}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Calculo del $h_{t}$ Fuente: \href {http://colah.github.io/posts/2015-08-Understanding-LSTMs/}{\textit {http://colah.github.io}}\relax }}{30}{figure.caption.71}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Onda de sonido Fuente: \href {https://medium.com/@venkateshpnk22/how-to-convert-your-speech-voice-to-text-data-1b2686099260}{\textit {https://medium.com}}\relax }}{32}{figure.caption.77}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

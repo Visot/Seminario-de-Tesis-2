@@ -36,10 +36,17 @@
 \contentsline {subsubsection}{Fully Connected Layers}{22}{section*.47}
 \contentsline {subsection}{\numberline {3.3.3}Arquitecturas conocidas}{22}{subsection.48}
 \contentsline {section}{\numberline {3.4}Redes Recurrentes}{23}{section.49}
-\contentsline {chapter}{\numberline {4}Procesamiento se\IeC {\~n}al de voz}{26}{chapter.52}
-\contentsline {chapter}{\numberline {5}Resultados}{27}{chapter.53}
-\contentsline {chapter}{\numberline {6}Conclusiones y Trabajo Futuro}{28}{chapter.54}
-\contentsline {section}{\numberline {6.1}Conclusiones}{28}{section.55}
-\contentsline {section}{\numberline {6.2}Trabajo Futuro}{28}{section.56}
-\contentsline {chapter}{\numberline {A}Arquitectura de la red y Resultados obtenidos}{33}{appendix.58}
-\contentsline {section}{\numberline {A.1}Resultados de precisi\IeC {\'o}n de entrenamiento}{33}{section.59}
+\contentsline {subsection}{\numberline {3.4.1}Propagaci\IeC {\'o}n hacia atr\IeC {\'a}s trav\IeC {\'e}s del tiempo(BPTT)}{25}{subsection.52}
+\contentsline {subsection}{\numberline {3.4.2}Desaparici\IeC {\'o}n de la gradiente}{25}{subsection.53}
+\contentsline {subsection}{\numberline {3.4.3}Long Short Term Memory (LSTM)}{26}{subsection.55}
+\contentsline {chapter}{\numberline {4}Procesamiento se\IeC {\~n}al de voz}{31}{chapter.73}
+\contentsline {section}{\numberline {4.1}Conceptos previos}{31}{section.74}
+\contentsline {subsection}{\numberline {4.1.1}Voz}{31}{subsection.75}
+\contentsline {subsection}{\numberline {4.1.2}Audios}{31}{subsection.76}
+\contentsline {section}{\numberline {4.2}Preprocesamiento}{32}{section.78}
+\contentsline {chapter}{\numberline {5}Resultados}{33}{chapter.79}
+\contentsline {chapter}{\numberline {6}Conclusiones y Trabajo Futuro}{34}{chapter.80}
+\contentsline {section}{\numberline {6.1}Conclusiones}{34}{section.81}
+\contentsline {section}{\numberline {6.2}Trabajo Futuro}{34}{section.82}
+\contentsline {chapter}{\numberline {A}Arquitectura de la red y Resultados obtenidos}{38}{appendix.84}
+\contentsline {section}{\numberline {A.1}Resultados de precisi\IeC {\'o}n de entrenamiento}{38}{section.85}

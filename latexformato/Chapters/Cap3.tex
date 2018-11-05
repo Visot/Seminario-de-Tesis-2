@@ -192,9 +192,146 @@ Es posible representar a la redes recurrentes como si fueran redes feed-fowards 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{Figures/rnn2.png}
-	\caption{Versión desenrollada \\ Fuente:  \href{https://cdn-images-1.medium.com/max/960/1*XB5c4rTCSeFQrK0aFC5IVw.png}{\textit{https://medium.com}}}
+	\caption{Versión desenrollada \\ Fuente:  \href{https://towardsdatascience.com/introduction-to-recurrent-neural-network-27202c3945f3}{\textit{https://towardsdatascience.com}}}
 	\label{}
 \end{figure}
+\newpage
+\subsection{Propagación hacia atrás través del tiempo(BPTT)}
+
+Las redes neuronales feedfoward, la propagación hacia atrás se encarga de transmitir el error de la salida hacia a las capas ocultas asignados a los pesos(w) responsabilidad del error general mediante el uso de la derivada parcial $\frac{ { \partial } E } { \partial w }$. En estas redes es común usar la propagación hacia atrás debido a que el par entrada salida posee un tamaño fijo situación que no ocurre con las secuencia de datos.\\
+ Las redes neuronales recurrentes utilizan una extensión de la propagación hacia atrás llamada \textit{Propagación hacia atrás a través del tiempo}, o BPTT  por sus siglas en inglés, la cual se aplica para secuencia de datos.
+Este algoritmo consta de los siguiente pasos:
+\begin{itemize}
+	\item Dado unos lapsos de tiempo entre la entrada y la salida de la red.
+	\item Se desenrolla la red(Ver Figura 3.8) , calcula y acumulada los errores de cada lapso de tiempo.
+	\item Enrolla la red y actualiza los pesos para reducir el error.
+	
+\end{itemize}
+\textquotedblleft Si la secuencia de datos consta de 1000 lapsos de tiempo, este será el número de derivadas requeridas para una simple actualización \textquotedblright \cite{WEBSITE:20}
+
+\subsection{Desaparición de la gradiente}
+Las redes recurrentes ofrecen una gran ventaja al manejar \textit{secuencias de datos} pero el trabajar con este tipo de datos también pueden repercutir en un problema conocido como la desaparición de la gradiente, o \textit{Vanishing Gradient}, el cual es una de la principales dificultades en las redes recurrentes.\\
+ La gradiente de descenso nos permite actualizar los valores de nuestros pesos para que nuestra red continué aprendiendo, pero si esta gradiente desaparece, debido a que toma un valor pequeño, nuestra red deja de aprender en términos sencillos en esto consiste el problema de \textit{desaparición de gradiente}.
+
+Dado que en la propagación hacia atrás se calcula la gradiente usando la regla de la cadena podemos suponer que usamos la función sigmoid de la figura 3.9 notamos que su derivada para valores positivos y negativos grandes toma el valor de 0 lo que producirá que la gradiente desaparezca y nuestra red deje de aprender al no poder actualizar.
+
+Entre la soluciones para este problema se encuentran usar otras funciones de activación como Relu o Elu, también se pueden usar métodos de normalización para los batchs.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Figures/sigmoid.png}
+	\caption{Función sigmoid y su derivada \\ Fuente:  \href{https://cdn-images-1.medium.com/max/960/1*XB5c4rTCSeFQrK0aFC5IVw.png}{\textit{https://medium.com}}}
+	\label{}
+\end{figure}
+
+\subsection{Long Short Term Memory (LSTM)}
+
+LSTM es un tipo de red neuronal recurrente que fue propuesto por Sepp Hochreiter y Jurgen Schmidhuber.\cite{LSTM} para aprovechar las ventajas de las redes recurrentes y combatir el problema de la desaparición de gradiente.\\ En la redes recurrentes se trasmite la información pero ha medida que transcurre el tiempo están son olvidadas, a esto se le llamó el \textit{problema de las dependencias a largo plazo}. Las LSTM buscan solucionar este problema, por lo cual estas se encargan de transmitir la información y \textit{recordarla} mientras los lapsos de tiempo pasan imitando la \textit{capacidad de la memoria humana para recordar.}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Figures/LSTM-chain.png}
+	\caption{Estructura en cadena \\ Fuente:  \href{http://colah.github.io/posts/2015-08-Understanding-LSTMs/}{\textit{http://colah.github.io}}}
+	\label{}
+\end{figure}
+
+En la siguiente figura observamos el esquema de una unidad, o neurona, de LSTM y estudiaremos su comportamiento.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{Figures/LSTM.png}
+	\caption{Unidad de LSTM \\ Fuente:  \href{https://towardsdatascience.com/understanding-lstm-and-its-quick-implementation-in-keras-for-sentiment-analysis-af410fd85b47g}{\textit{https://towardsdatascience.com}}}
+	\label{}
+\end{figure}
+
+\begin{itemize}
+	\item $X_{t}$: entrada actual
+	\item $\sigma$: capa sigmoid
+	\item $tanh$: capa tanh
+	\item $h_{t-1}$: salidas de la última unidad.
+	\item $C_{t-1}$: memoria de la última unidad.
+	\item $h_{t}$: salida actual.
+	\item $C_{t}$: memoria actualizada
+	
+\end{itemize}
+
+
+Principalmente la idea de LSTM gira entorno a las celdas de estado  $c_{t}$, esta será la encargada de añadir nueva información o removerla si ya no es necesaria.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{Figures/kernel.png}
+	\caption{celda de estado \\ Fuente:  \href{http://colah.github.io/posts/2015-08-Understanding-LSTMs/}{\textit{http://colah.github.io}}}
+	\label{}
+\end{figure}
+
+El valor de la celda de estado($C_{t}$) y la salida($h_{t}$) :
+\begin{enumerate}
+	\item  Nuestro LSTM decidirá que información será desechada de nuestra célula de estado. Esta decisión utilizará una capa sigmoidal llamada \textit{forget gate layer} la cual genera un número entre 0 y 1, lo cual definirá la cantidad de información que mantendrá.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.75\textwidth]{Figures/forgetay.png}
+		\caption{capa sigmoidal \\ Fuente:  \href{http://colah.github.io/posts/2015-08-Understanding-LSTMs/}{\textit{http://colah.github.io}}}
+		\label{}
+	\end{figure}
+			\begin{equation}
+				\label{forget layer}
+				\begin{aligned}
+				f_{t}&=\sigma(W_{t}\cdot[h_{t-1},x_{t}]+b_{f})
+				\end{aligned}
+			\end{equation}
+	\item Una vez que se ha olvidado es importante es aceptar nueva información y almacenarla. Esto será realizado en los siguientes pasos.
+	\begin{enumerate}
+		\item Una capa sigmoid llamada \textit{input gate layer} decide que valores serán actualizados($i_{t}$).
+
+	
+
+		\item Una capa tanh crea un vector de valores posibles, o valores candidatos, $\hat{C}_{t}$ .
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.75\textwidth]{Figures/forgetay2.png}
+			\caption{capa tanh \\ Fuente:  \href{http://colah.github.io/posts/2015-08-Understanding-LSTMs/}{\textit{http://colah.github.io}}}
+			\label{}
+		\end{figure}
+		\begin{equation}
+			\label{forget layer}
+			\begin{aligned}
+			i_{t}&=\sigma(W_{i}\cdot[h_{t-1},x_{t}]+b_{i})\\
+			\hat{C}_{t}&=\sigma(W_{C}\cdot[h_{t-1},x_{t}]+b_{C})
+			\end{aligned}
+			\end{equation}
+		\item Finalmente se combinan ambos para actualizar la celda de estado.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.6\textwidth]{Figures/LSTM8.png}
+			\caption{Actualización del $C_{t}$ \\ Fuente:  \href{http://colah.github.io/posts/2015-08-Understanding-LSTMs/}{\textit{http://colah.github.io}}}
+			\label{}
+		\end{figure}
+		\begin{equation}
+			\label{ctlayer}
+			\begin{aligned}
+				C_{t}&=f_{t}\ast C_{t-1} + i_{t}\ast \hat{C}_{t}
+		    \end{aligned}
+		\end{equation}
+	\end{enumerate}
+\item Finalmente para obtener la salida de este módulo $C_{t}$
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\textwidth]{Figures/LSTM9.png}
+	\caption{Calculo del $h_{t}$ \\ Fuente:  \href{http://colah.github.io/posts/2015-08-Understanding-LSTMs/}{\textit{http://colah.github.io}}}
+	\label{}
+\end{figure}
+		\begin{equation}
+			\label{ht}
+			\begin{aligned}
+				o_{t}&=\sigma(W_{o}[h_{t-1},x_{t}]+b_{o})\\
+				h_{t}&=o_{t}\ast \tanh(C_{t})
+			\end{aligned}
+		\end{equation}
+\end{enumerate}
+
+Una variante de las redes recurrentes son las redes recurrentes bidireccionales, la cual consiste en aprender de una secuencia de datos en 2 direcciones siguiendo lapsos de tiempo de la secuencia hacia adelante y atrás. Al capturar la información de la secuencia invertida nos permite mejorar nuestra predicción.	\textquotedblleft Para superar las limitaciones de una RNN regular proponemos un modelo bidireccional de redes recurrentes(BRNN) la cual puede ser entrenada con la información de entrada en el pasado y en el futuro de un marco especifico de tiempo \textquotedblright \cite{BRNN}
+
+
 %%%
 %%\begin{figure}[H]
 %%\centering
@@ -205,4 +342,3 @@ Es posible representar a la redes recurrentes como si fueran redes feed-fowards 
 
 
 
-\afterpage{\blankpage}
