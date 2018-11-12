@@ -207,7 +207,59 @@ Este algoritmo consta de los siguiente pasos:
 	\item Enrolla la red y actualiza los pesos para reducir el error.
 	
 \end{itemize}
+
 \textquotedblleft Si la secuencia de datos consta de 1000 lapsos de tiempo, este será el número de derivadas requeridas para una simple actualización \textquotedblright \cite{WEBSITE:20}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Figures/BPTT1.png}
+	\caption{BPTT \\ Fuente:  \href{http://www.wildml.com/2015/10/recurrent-neural-networks-tutorial-part-3-backpropagation-through-time-and-vanishing-gradients/}{\textit{http://www.wildml.com}}}
+	\label{}
+\end{figure}
+
+En este esquema de básico de redes neuronales recurrentes utilizamos la función de activación softmax para calcular los valores de la celda y utilizamos pesos($U,W,V$) de esta forma tenemos que:
+\begin{equation}
+	\label{ST}
+	\begin{aligned}
+	s_{t}&=\tanh(Ux_{t}+Ws_{t-1})\\
+	\hat{y}_{t}&=softmax(Vs_{t})
+	\end{aligned}
+\end{equation}
+Donde $s_{t}$ son los valores de la celda y $\hat{y}_{t}$ es la predicción. A continuación calcularemos el error de nuestra red utilizando el valor de la predicción $\hat{y}_{t}$ y el valor real $y_{t}$.
+\begin{equation}
+	\label{STs}
+	\begin{aligned}
+		E_{t}(y_{t},\hat{y_{t}})&=y_{t}logy_{t}\\
+		E_{t}(y,\hat{y})&=\sum_{t}{E_{t}(y_{t},\hat{y_{t}}}\\
+	\end{aligned}
+\end{equation}
+Nuestro objetivo será ajustar los pesos ($U,W,V$) por lo cual usaremos la gradiente de descenso con respecto a los pesos los cuales serán calculados en la ecuación 3.4.
+
+\begin{equation}
+\label{Ts}
+\begin{aligned}
+	\frac{\partial E}{\partial W}&=\sum_{t}{\frac{\partial E_{t}}{\partial W}}
+\end{aligned}
+\end{equation}
+Para calcula esta gradiente haremos uso de la regla de la cadena para simplificar los cálculos usaremos un ejemplo el $E_{t}$ para $t=2$.
+
+
+\begin{equation}
+\label{Tsfs}
+	\begin{aligned}
+	\frac{\partial E_{2}}{\partial V}&=\frac{\partial E_{2}}{\partial \hat{y_{2}}} \frac{\partial \hat{y_{2}}}{\partial V}\\
+	\frac{\partial E_{2}}{\partial V}&=\frac{\partial E_{2}}{\partial \hat{y_{2}}} \frac{\partial \hat{y_{2}}}{\partial z_{2}} \frac{\partial \hat{z_{2}}}{\partial V}\\
+	\frac{\partial E_{2}}{\partial V}&=(\hat{y_{2}}-y_{2})\otimes s_{3}
+	\end{aligned}
+\end{equation}
+Donde $s_{2}=Vs_{3}$ ahora calcularemos para W como $s_{2}=tanh(Ux_{t}+ Ws_{1})$
+Al derivar obtenemos la ecuación 3.6 luego se sumarán las contribuciones en cada lapso de tiempo.
+\begin{equation}
+\label{TsSfs}
+	\begin{aligned}
+		\frac{\partial E_{2}}{\partial W}&=\frac{\partial E_{2}}{\partial \hat{y_{2}}} \frac{\partial \hat{y_{2}}}{\partial s_{2}} \frac{\partial \hat{s_{2}}}{\partial s_{k}} \frac{\partial s_{k}}{\partial W}
+	\end{aligned}
+\end{equation}
 
 \subsection{Desaparición de la gradiente}
 Las redes recurrentes ofrecen una gran ventaja al manejar \textit{secuencias de datos} pero el trabajar con este tipo de datos también pueden repercutir en un problema conocido como la desaparición de la gradiente, o \textit{Vanishing Gradient}, el cual es una de la principales dificultades en las redes recurrentes.\\
@@ -329,6 +381,7 @@ El valor de la celda de estado($C_{t}$) y la salida($h_{t}$) :
 		\end{equation}
 \end{enumerate}
 
+\newpage
 Una variante de las redes recurrentes son las redes recurrentes bidireccionales, la cual consiste en aprender de una secuencia de datos en 2 direcciones siguiendo lapsos de tiempo de la secuencia hacia adelante y atrás. Al capturar la información de la secuencia invertida nos permite mejorar nuestra predicción.	\textquotedblleft Para superar las limitaciones de una RNN regular proponemos un modelo bidireccional de redes recurrentes(BRNN) la cual puede ser entrenada con la información de entrada en el pasado y en el futuro de un marco especifico de tiempo \textquotedblright \cite{BRNN}
 
 
