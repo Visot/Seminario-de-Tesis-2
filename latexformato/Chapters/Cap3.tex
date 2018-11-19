@@ -261,6 +261,119 @@ Al derivar obtenemos la ecuación 3.6 luego se sumarán las contribuciones en ca
 	\end{aligned}
 \end{equation}
 
+
+\subsection{Propagación dinámica hacia atrás (DBP)}
+Este algoritmo fue propuesto por Pineda\cite{PINEDA} en 1987. Este tipo de redes neuronales son utilizados a las redes neuronales dinámica, la cual esta representada por la ecuación no lineal de tiempo discreto mostrará en la ecuación 3.7
+
+
+\begin{equation}
+\label{ECUATION}
+\begin{aligned}
+\left\lbrace
+\begin{array}{ll}
+x(k+1)=f(x(k),W,\theta) \\
+y(k)= h(x(k))
+\end{array}
+\right.
+\end{aligned}
+\end{equation}
+
+\begin{itemize}
+	\item $x=[x_{1}...,x_{n}]^{T}$: Vector de estado de la red dinámica
+	\item  $x_{i}$ : estado interno de la neurona $i$
+	\item  $W=[w_{ij}]_{nxn}$: Matriz de valores de pesos.
+	\item $\theta=[\theta_{1}...,\theta_{n}]^{T}$: vector somático.
+	\item $f:R^{n}\times R^{n\times n}\times R^{n} \rightarrow R^{n}$ función continua y diferenciable.
+	\item $h(x):R^{n} \rightarrow R^{m}$ función continua y diferenciable. 	
+\end{itemize}
+
+
+
+Para el caso de redes recurrentes se tienen conexiones hacia adelante y hacia atrás entre las capas y las neuronas. Ahora los pesos $w_{ij}$ representa la conexión sinaptica entre la i-ésima  y j-ésima y $\theta_{i}$ umbral en la i-ésima neurona.
+
+
+\begin{equation}
+\label{ECUATIONs}
+\begin{aligned}
+\left\lbrace
+\begin{array}{ll}
+x_{i}(k+1)=f_{i}(x(k),w_{i},\theta_{i}) \\
+y(k)= h(x(k))
+\end{array}
+\right.
+\end{aligned}
+\end{equation}
+Donde :
+\begin{equation}
+W=		
+\begin{bmatrix}
+	w_{11} & w_{12} & w_{13} & \dots  & w_{1n} \\
+	w_{21} & w_{22} & w_{23} & \dots  & w_{2n} \\
+	\vdots & \vdots & \vdots & \ddots & \vdots \\
+	w_{n1} & w_{n2} & w_{n3} & \dots  & w_{nn}
+\end{bmatrix}
+=
+\begin{bmatrix}
+w_{1}^{T} \\
+w_{2}^{T} \\
+\vdots \\
+w_{d}^{T}
+\end{bmatrix}
+\end{equation}
+
+\begin{equation}
+w_{i}=		
+\begin{bmatrix}
+	w_{i1}  \\
+	w_{i2}  \\
+	\vdots  \\
+	w_{in} 
+\end{bmatrix}
+i=1,2 ...., n
+\end{equation}
+
+La ecuación 3.7 nos muestra que el comportamiento dinámico de la neurona depende los pesos ($w_{ij}$) y el parámetro $\theta_{i}$
+Dado $t=[t_{1},...,t_{m}]^{T}$ un valor objetivo de nuestra red y nuestro propósito es encontrar los valores de pesos adecuados para estimar $ t=h(x^{f})$ . De esta forma podemos definir el error en la ecuación 3.11 .
+\begin{equation}
+E= \frac{1}{2} \sum_{l=1}^{m}[t_{l}-h_{l}(x^{f})]^{2}=\frac{1}{2}\sum(J_{l}^{f})^{2}
+\end{equation}
+Donde $J_{l}^{f}-t_{l}-h_{l}(x^{f})$ 
+
+A continuación veremos como se actualizarán los parámetros $w_{ij}$  y $\theta_{i}$ usando tasa de aprendizaje $\eta_{w}$ y $\eta_{\theta}$ respectivamente.
+
+\begin{equation}
+	\begin{aligned}
+	\bigtriangleup w_{ij}&=-\eta_{w}\frac{\partial E}{\partial w_{ij}} \\
+	&=\eta_{w} \sum_{p=1}^{n} \sum_{l=1}^{m}[t_{l}-h_{l}(x^f)]\frac{\partial h_{l}(x^f)}{\partial x_{p}^f} \frac{\partial x_{p}^f}{\partial w_{ij}}\\
+	&=\eta_{w} \sum_{p=1}^{n} \sum_{l=1}^{m}J_{l}^{f}\frac{\partial h_{l}(x^f)}{\partial x_{p}^f} \frac{\partial x_{p}^f}{\partial w_{ij}}
+	\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\bigtriangleup \theta_{i}&=-\eta_{\theta}\frac{\partial E}{\partial \theta_{i}} \\
+&=\eta_{\theta} \sum_{p=1}^{n} \sum_{l=1}^{m}[t_{l}-h_{l}(x^f)]\frac{\partial h_{l}(x^f)}{\partial x_{p}^f} \frac{\partial x_{p}^f}{\partial \theta_{i}}\\
+&=\eta_{\theta} \sum_{p=1}^{n} \sum_{l=1}^{m}J_{l}^{f}\frac{\partial h_{l}(x^f)}{\partial x_{p}^f} \frac{\partial x_{p}^f}{\partial \theta_{i}}
+\end{aligned}
+\end{equation}
+
+Derivando las ecuaciones 3.12 y 3.13
+\begin{equation}
+\begin{aligned}
+\bigtriangleup w_{ij}&=-\eta_{w}z_{i}^f \frac{\partial f_{i}(x^f,w_{i},\theta_{i})}{\partial w_{ij}}\\
+\bigtriangleup \theta_{i}&=-\eta_{\theta}z_{i}^{f}\frac{\partial f_{i}(x^f,w_{i},\theta_{i})}{\partial \theta_{i}} 
+\end{aligned}
+\end{equation}
+
+Donde $z_{i}^f$ esta determinada por la siguiente ecuación:
+
+\begin{equation}
+\begin{aligned}
+z_{i}^f =\sum_{p=1}^{n} \frac{\partial f_{p}}{\partial x_{i}^f}z_{p}^{f} + \sum_{l=1}^{m} J_{l}^f \frac{\partial h_{l}(x^f)}{\partial x_{i}^f}
+\end{aligned}
+\end{equation}
+\newpage
+\textquotedblleft Un algoritmo de propagación dinámica hacia atrás es utilizado para entrenar la red en configuraciones de bucle cerrado, cuando existe una ruta de retroalimentación entre la salida de la sección de filtro digital y las entradas a la red neuronal. \textquotedblright \cite{DBP}
 \subsection{Desaparición de la gradiente}
 Las redes recurrentes ofrecen una gran ventaja al manejar \textit{secuencias de datos} pero el trabajar con este tipo de datos también pueden repercutir en un problema conocido como la desaparición de la gradiente, o \textit{Vanishing Gradient}, el cual es una de la principales dificultades en las redes recurrentes.\\
  La gradiente de descenso nos permite actualizar los valores de nuestros pesos para que nuestra red continué aprendiendo, pero si esta gradiente desaparece, debido a que toma un valor pequeño, nuestra red deja de aprender en términos sencillos en esto consiste el problema de \textit{desaparición de gradiente}.
@@ -381,7 +494,6 @@ El valor de la celda de estado($C_{t}$) y la salida($h_{t}$) :
 		\end{equation}
 \end{enumerate}
 
-\newpage
 Una variante de las redes recurrentes son las redes recurrentes bidireccionales, la cual consiste en aprender de una secuencia de datos en 2 direcciones siguiendo lapsos de tiempo de la secuencia hacia adelante y atrás. Al capturar la información de la secuencia invertida nos permite mejorar nuestra predicción.	\textquotedblleft Para superar las limitaciones de una RNN regular proponemos un modelo bidireccional de redes recurrentes(BRNN) la cual puede ser entrenada con la información de entrada en el pasado y en el futuro de un marco especifico de tiempo \textquotedblright \cite{BRNN}
 
 

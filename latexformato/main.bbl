@@ -1,10 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{GPU}
-John Nickolls William~J. Dally.
-\newblock The gpu computing era.
-\newblock {\em IEEE Micro}, 30:56--69, 2010.
-
 \bibitem{HAND}
 César~Estrebou Franco~Ronchetti, Facundo~Quiroga and Laura Lanzarini.
 \newblock Handshape recognition for argentinian sign language using probsom.
@@ -14,7 +9,7 @@ César~Estrebou Franco~Ronchetti, Facundo~Quiroga and Laura Lanzarini.
 Derek~Rose Itamar~Arel and Thomas Karnowski.
 \newblock Deep machine learning - a new frontier in artificial intelligence
   research [research frontier].
-\newblock {\em IEEE Computational Intelligence Magazine}, pages 1--7, 2010.
+\newblock {\em JCST}, 16(1):1--5, 2010.
 
 \bibitem{Optimization}
 Adam Coates Abhik Lahiri Bobby~Prochnow Quoc V.~Le, Jiquan~Ngiam and Andrew~Y.
@@ -54,6 +49,18 @@ Jason Brownlee.
   Jun 2017.
 \newblock Accessed on 2018-10-11.
 
+\bibitem{PINEDA}
+Fernando~J. Pineda.
+\newblock Generalization of back-propagation to recurrent neural networks.
+\newblock {\em PHYSICAL REVIEW LETTERS}, 59(19):2229--2232, 1987.
+
+\bibitem{DBP}
+Janos Sztipanovit.
+\newblock Dynamic backpropagation algorithm for neural network controlled
+  resonator-bank architecture.
+\newblock {\em IEEE TRANSACTIONS ON CIRCUITS AND SYSTEMS-11: ANALOG AND DlGlTAL
+  SIGNAL PROCESSING}, 39(2):99--108, 1992.
+
 \bibitem{LSTM}
 Sepp Hochreiter and Jurgen Schmidhuber.
 \newblock Long short-term memory.
@@ -64,5 +71,11 @@ M.~Schuster and K.~Paliwal.
 \newblock Bidirectional recurrent neural networks.
 \newblock {\em IEEE TRANSACTIONS ON SIGNAL PROCESSING,}, 45(11):2673--2681,
   1997.
+
+\bibitem{LP}
+J.~Makhoul.
+\newblock Spectral linear prediction: Properties and applications.
+\newblock {\em IEEE Transactions on Acoustics, Speech, and Signal Processing},
+  23:283--296, 1975.
 
 \end{thebibliography}
