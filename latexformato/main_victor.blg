@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main_victor.aux
+The style file: unsrt.bst
+Database file #1: main.bib
+Repeated entry---line 78 of file main.bib
+ : @article{DBP
+ :             ,
+I'm skipping whatever remains of this entry
+Too many commas in name 1 of "Gene Wu,Joseph L. Greathouse, Alexander Lyashevsky, Nuwan Jayasena and Derek Chiou" for entry GPU
+while executing---line 944 of file unsrt.bst
+Name 1 in "Franco Ronchetti, Facundo Quiroga, César Estrebou, and Laura Lanzarini" has a comma at the end for entry HAND
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Quoc V. Le, Jiquan Ngiam, Adam Coates, Abhik Lahiri, Bobby Prochnow and Andrew Y. Ng" for entry Optimization
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Quoc V. Le, Jiquan Ngiam, Adam Coates, Abhik Lahiri, Bobby Prochnow and Andrew Y. Ng" for entry Optimization
+while executing---line 944 of file unsrt.bst
+You've used 15 entries,
+            1791 wiz_defined-function locations,
+            555 strings with 6085 characters,
+and the built_in function-call counts, 3320 in all, are:
+= -- 318
+> -- 88
+< -- 4
++ -- 37
+- -- 22
+* -- 171
+:= -- 492
+add.period$ -- 51
+call.type$ -- 15
+change.case$ -- 15
+chr.to.int$ -- 0
+cite$ -- 15
+duplicate$ -- 155
+empty$ -- 360
+format.name$ -- 22
+if$ -- 792
+int.to.chr$ -- 0
+int.to.str$ -- 15
+missing$ -- 10
+newline$ -- 83
+num.names$ -- 15
+pop$ -- 54
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 91
+stack$ -- 0
+substring$ -- 219
+swap$ -- 51
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 30
+width$ -- 17
+write$ -- 173
+(There were 5 error messages)

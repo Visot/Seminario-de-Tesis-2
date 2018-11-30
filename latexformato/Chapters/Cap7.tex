@@ -1,0 +1,24 @@
+\chapter{Conclusiones y Trabajo Futuro}
+En este capítulo se describirán las conclusiones generales que se encontraron al probar y estudiar las variantes de RNN al momento de realizar una tarea de clasificación con le conjunto de datos utilizado.
+
+Además, se propondrán algunas mejoras para que el trabajo obtenga mejores
+resultados
+
+\section{Conclusiones}
+
+\begin{itemize}
+	\item Las redes LSTM obtuvieron mejores resultados contra el RNN simple.
+	\item La RNN simple dejo de aprender debido al problema de desaparición de gradiente.
+	\item El algoritmo MFCC permite extraer las características necesarias para el procesamiento de la señal.
+	\item Los audios con distintos tiempos incrementan el número de lapsos tiempos en que desenrolla la red lo cual impide una mejor precisión.
+	
+\end{itemize}
+
+\section{Trabajo Futuro}
+
+El propósito general de este seminario  fue adquirir el conocimiento y
+experiencia necesarios para poder trabajar con datos del tipo dinámico además de conocer las ventajas de usar una red tipo LSTM.
+Las LSTM demostraron ser útiles para este tipo de tareas debido a que estas poseen cierta \textit{memoria} y guardan la información pasada. Además que estas mejoran mejor el problema de desaparición de gradiente.
+El conjunto de datos recolectados fue suficiente para realizar el entrenamiento y las pruebas pero para un mejor resultado es necesario datos más variados con gran cantidad de hablantes. Los proyecto para generar un corpus de data aún están en desarrollo por lo cual no sé puede acceder a una data más adecuada.\\
+En futuros trabajos se trataré de construir sistema de reconocimiento para más palabras además de tratar de tratar de construir un lenguaje básico usando LSTM. Este proyecto estuvo delimitada por la capacidad de la tarjeta gráfica y por su conjunto de datos reducido. 
+

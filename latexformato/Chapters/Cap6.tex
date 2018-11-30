@@ -1,1 +1,34 @@
-	\chapter{Resultados}
+\chapter{Resultados}
+En este capítulo se discutirán los resultados obtenidos durante el entrenamiento de nuestra red neuronal.
+Para estas pruebas usamos el conjunto de datos descrito en el capítulo. Estos resultados fueron
+obtenidos usando una computadora con tarjeta gráfica NVIDIA GTX950M con
+un total de 640 núcleos y una memoria de 4GB.
+Estos resultados fueron obtenidos utilizando distintos esquema de redes neuronales(ver Apéndice A.1)
+\subsection{Precisión}
+En el cuadro 6.1 podemos ver los resultados de probar distintos variantes de RNN las gráficas de la precisión en cada epochs se pueden ver en el Apéndice A.2. Estos resultados muestran que una RNN obtiene menor precisión que su variantes. Entre estas variantes es claro que LSTM Dropout(0.5) esta comenzando el overfitting. Sin embargo al aumentar la probabilidad del dropout se evita este problema a cambio de una precisión más baja. De estos resultados es notorio que el LSTM con una sola capa tuvo mejores resultados sin caer en overfitting.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\rowcolor{Gray}  Modelo & Precisión test(\%) & Precisión Training \\ \hline
+		RNN&        10.00  &             19.16         \\ \hline
+		LSTM&        63.63  &          82.49           \\ \hline
+		LSTM Dropout(0.5)&  72.72         &     99.58                \\ \hline
+		LSTM Dropout(0.8)&	57.27		&	78.33		\\ \hline
+	\end{tabular}
+	\caption{Precisión de modelos para 500 iteraciones}
+\end{table}
+\subsection{Errores }
+El cuadro 6.2 representa la tasa de error de los modelos 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\rowcolor{Gray}  Modelo & Error test  & Error Training\\ \hline
+		RNN&        2.836         &2.099\\ \hline
+		LSTM&       1.323         & 0.363  \\ \hline
+		LSTM Dropout(0.5)&   1.612       &     0.011            \\ \hline
+		LSTM Dropout(0.8)&	1.408		&0.530\\ \hline
+	\end{tabular}
+	\caption{Errores de los conjuntos test y training para 500 iteraciones}
+\end{table}

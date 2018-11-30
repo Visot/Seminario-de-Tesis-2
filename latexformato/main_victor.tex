@@ -8,6 +8,7 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
 \usepackage{smartdiagram}
+\usepackage{colortbl}
 \usepackage{afterpage}
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=4cm, minimum height=1.5cm,text centered, draw=black, fill=blue!30]
 \tikzstyle{arrow} = [thick,->,>=stealth]
@@ -18,11 +19,13 @@
 \usepackage[acronym,nomain]{glossaries}
 %\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex}
 %\addbibresource{main.bib}
+
 \usepackage[autostyle=true]{csquotes}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
 \usepackage{smartdiagram}
 \usepackage{afterpage}
+\definecolor{Gray}{gray}{0.9}
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=4cm, minimum height=1.5cm,text centered, draw=black, fill=blue!30]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 \newcommand\blankpage{%
@@ -34,7 +37,11 @@
 \usepackage{listings}
 \renewcommand{\lstlistingname}{Código}
 \renewcommand\lstlistlistingname{Índice de Código}
-
+\lstset{basicstyle=\ttfamily,
+	showstringspaces=false,
+	commentstyle=\color{red},
+	keywordstyle=\color{blue}
+}
 \usepackage{float}
 \usepackage{url}
 \makeatletter
@@ -71,7 +78,7 @@
 \textsc{\huge \univname}\\[0.3cm]
 \textsc{\Large Facultad de Ciencias}\\[0.2cm]
 \textsc{\large Escuela Profesional de Ciencia de la Computaci\'on}\\[2cm]
-\textsc{\LARGE \textit{Conversión de voz en texto usando redes neuronales}}\\[2cm] 
+\textsc{\LARGE \textit{Redes LSTM para el reconocimiento de voz aplicado un conjunto de dígitos}}\\[2cm] 
 {\Large \textbf{SEMINARIO DE TESIS 2}}
 {\huge \bfseries \ttitle}\\[2cm] 
 % Thesis title
@@ -100,10 +107,10 @@
 %\renewcommand{\abstractname}{Abstract}
 \begin{abstract}
 \addchaptertocentry{\abstractname}
-En las últimas décadas el campo de la inteligencia artificial se ha desarrollado rápidamente. Estudios sobre reconocimiento de imágenes y voz han sido estudiados en las últimas décadas. Actualmente este campo requiere realizar un gran números de cálculos para entrenar redes neuronales que sean capaces de distinguir y clasificar distintos objetos contenidos en imágenes. Incluso este proceso puede tardar más dependiendo del tamaño del dataset. Por lo cual surge la necesidad de encontrar métodos que permitan acelerar el proceso de entrenamiento de las redes neuronales.\\
-Por tal motivo presente seminario buscar lograr un mayor entendimiento de métodos para acelerar el proceso de entrenamiento de una red neuronal convolucional, basándonos en la teoría de redes neuronales y usando como herramienta la librería tensorflow, esta nos permite un uso controlado de las métodos de optimización.
+En las últimas décadas el campo de la inteligencia artificial se ha desarrollado rápidamente. Estudios sobre reconocimiento de imágenes y voz han sido estudiados en las últimas décadas. Actualmente este campo requiere realizar un gran números de cálculos para entrenar redes neuronales. Este proceso puede tardar más dependiendo del tamaño del tipo de dato. El análisis de voz es una tarea importante dentro del campo de la inteligencia artificial debido a que la señal de voz varia con el tiempo. Además de que es necesario un pre-procesamiento para extraer las características de esta. Métodos como el MFCC han permitido que tareas como el reconocimiento de voz sean posibles. Encontrar modelos adecuados para el procesamiento de estos datos es una tarea importante \\
+Este seminario presenta modelos de redes neuronales como el RNN, LSTM como una alternativa para tratar datos dinámicos y realizar tareas de clasificación para un conjunto de datos de la pronunciación de los números del 0 al 9. Además de mostrará las precisiones de los distintos modelos.
 
-\textbf{KEYWORDS}:  Dataset, Métodos Adaptativos, CNN, SGD, Optimizadores.
+\textbf{KEYWORDS}:  MFCC, RNN, LSTM, SGD.
 \end{abstract}\hspace{10pt}
 
 \keywords{agasga}
@@ -116,8 +123,8 @@ Por tal motivo presente seminario buscar lograr un mayor entendimiento de métod
 %\afterpage{\blankpage}
 %\listoftables
 %\afterpage{\blankpage}
-%\listoftables 
-%\lstlistoflistings
+\listoftables 
+\lstlistoflistings
 %\afterpage{\blankpage}
 \newpage
 
@@ -126,13 +133,13 @@ Por tal motivo presente seminario buscar lograr un mayor entendimiento de métod
 \end{center}
 \bigskip
 \begin{tabular}{ l c l }
-\textbf{k-nn}& & k- nearest neighbors\\
+
 \textbf{SVM}& & Super Vector Machine\\
-\textbf{SVC}& & Super Vector Regression\\
-\textbf{SVR}& & Super Vector Classification\\
 \textbf{SGD} & & Stochastic gradient descent\\
 \textbf{DNN} & & Deep Neural Network\\
 \textbf{CNN} & & Convolutional Neural Network\\
+\textbf{RNN} && Recurrent Neuronal Network\\
+\textbf{LSTM} && Long short-term memory \\
 \textbf{ETC} & & Etcétera \\
 
 \end{tabular}
@@ -143,7 +150,7 @@ Por tal motivo presente seminario buscar lograr un mayor entendimiento de métod
 {\huge \textit{Agradecimientos}}\\[1.5cm]
 \end{center}
 
-Agradezco a mis padres por todo el apoyo incondicional durante todos estos años de estudio, a mis compañeros de clase por el apoyo brindado durante el tiempo de estudio y a mi asesor por ayudarme en este seminario.
+Agradezco a mis padres por todo el apoyo incondicional durante todos estos años de estudio, a mis compañeros de clase en especial aquellos que me brindaron su voz para construir el conjunto de datos empleado en este seminario y a mi asesor por ayudarme en este proyecto.
 
 
 
@@ -168,7 +175,9 @@ $\ $
 $\ $
 %\thispagestyle{empty} % para que no se numere esta pagina
 \input{Chapters/Cap5}
+
 \input{Chapters/Cap6}
+\input{Chapters/Cap7}
 \bibliography{main}
 \bibliographystyle{unsrt}
 \afterpage{\blankpage}

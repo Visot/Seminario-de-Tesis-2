@@ -1,0 +1,100 @@
+\begin{thebibliography}{10}
+
+\bibitem{GPU}
+Alexander Lyashevsky Nuwan~Jayasena Gene~Wu, Joseph L.~Greathouse and Derek
+  Chiou.
+\newblock Gpgpu performance and power estimation using machine learning.
+\newblock {\em 21st International Symposium on High Performance Computer
+  Architecture (HPCA)}, pages 564--576, 2015.
+
+\bibitem{HAND}
+César~Estrebou Franco~Ronchetti, Facundo~Quiroga and Laura Lanzarini.
+\newblock Handshape recognition for argentinian sign language using probsom.
+\newblock {\em JCST}, 16(1):1--5, 2010.
+
+\bibitem{DML}
+Derek~Rose Itamar~Arel and Thomas Karnowski.
+\newblock Deep machine learning - a new frontier in artificial intelligence
+  research [research frontier].
+\newblock {\em JCST}, 16(1):1--5, 2010.
+
+\bibitem{Optimization}
+Adam Coates Abhik Lahiri Bobby~Prochnow Quoc V.~Le, Jiquan~Ngiam and Andrew~Y.
+  Ng.
+\newblock On optimization methods for deep learning.
+\newblock {\em International Conference on Machine Learning 2010}, pages 1--8,
+  2010.
+
+\bibitem{book1}
+Josh Patterson and Adam Gibson.
+\newblock Major architectures of deep networks.
+\newblock In {\em Deep Learning A Practitioner’s Approach}, pages 132--135.
+  O’Reilly Media, 2017.
+
+\bibitem{WEBSITE:9}
+Adrian Rosebrock.
+\newblock Lenet – convolutional neural network in python.
+\newblock
+  \url{https://www.pyimagesearch.com/2016/08/01/lenet-convolutional-neural-network-in-python},
+  Ago 2016.
+\newblock Accessed on 2018-06-15.
+
+\bibitem{WEBSITE:10}
+Siddharth Das.
+\newblock Cnn architectures: Lenet, alexnet, vgg, googlenet, resnet and more
+  ….
+\newblock
+  \url{https://medium.com/@siddharthdas_32104/cnns-architectures-lenet-alexnet-vgg-googlenet-resnet-and-more-666091488df5},
+  Nov 2017.
+\newblock Accessed on 2018-06-15.
+
+\bibitem{WEBSITE:20}
+Jason Brownlee.
+\newblock A gentle introduction to backpropagation through time.
+\newblock
+  \url{https://machinelearningmastery.com/gentle-introduction-backpropagation-time/},
+  Jun 2017.
+\newblock Accessed on 2018-10-11.
+
+\bibitem{PINEDA}
+Fernando~J. Pineda.
+\newblock Generalization of back-propagation to recurrent neural networks.
+\newblock {\em PHYSICAL REVIEW LETTERS}, 59(19):2229--2232, 1987.
+
+\bibitem{DBP}
+Janos Sztipanovit.
+\newblock Dynamic backpropagation algorithm for neural network controlled
+  resonator-bank architecture.
+\newblock {\em IEEE TRANSACTIONS ON CIRCUITS AND SYSTEMS-11: ANALOG AND DlGlTAL
+  SIGNAL PROCESSING}, 39(2):99--108, 1992.
+
+\bibitem{LSTM}
+Sepp Hochreiter and Jurgen Schmidhuber.
+\newblock Long short-term memory.
+\newblock In {\em Neural Computation}, pages 1735--1780, 1997.
+
+\bibitem{BRNN}
+M.~Schuster and K.~Paliwal.
+\newblock Bidirectional recurrent neural networks.
+\newblock {\em IEEE TRANSACTIONS ON SIGNAL PROCESSING,}, 45(11):2673--2681,
+  1997.
+
+\bibitem{LP}
+J.~Makhoul.
+\newblock Spectral linear prediction: Properties and applications.
+\newblock {\em IEEE Transactions on Acoustics, Speech, and Signal Processing},
+  23:283--296, 1975.
+
+\bibitem{WEBSITE:21}
+Carnegie~Mellon University.
+\newblock Voxforge.
+\newblock \url{http://www.voxforge.org/}, 2006.
+\newblock Accessed on 2018-09-10.
+
+\bibitem{WEBSITE:22}
+Mozilla.
+\newblock Common voice.
+\newblock \url{https://voice.mozilla.org/}, NOV 2017.
+\newblock Accessed on 2018-09-10.
+
+\end{thebibliography}
