@@ -22,26 +22,29 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Onda de sonido Fuente: \href {https://medium.com/@venkateshpnk22/how-to-convert-your-speech-voice-to-text-data-1b2686099260}{\textit {https://medium.com}}\relax }}{36}{figure.caption.95}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces se\IeC {\~n}al de voz y su espectro asociado Fuente: \href {https://www.finaltest.com.mx/product-p/art-03.htm}{\textit {https://www.finaltest.com.mx}}\relax }}{36}{figure.caption.97}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Relaci\IeC {\'o}n escala mel - Frecuencia Fuente: \href {https://www.researchgate.net/figure/Relacion-entre-frecuencia-en-Hz-eje-x-y-en-escala-Mel-eje-y_fig2_312041038}{\textit {https://www.researchgate.net}}\relax }}{37}{figure.caption.99}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Relaci\IeC {\'o}n escala mel - Frecuencia Fuente: \href {https://www.researchgate.net/figure/Relacion-entre-frecuencia-en-Hz-eje-x-y-en-escala-Mel-eje-y_fig2_312041038}{\textit {https://www.researchgate.net}}\relax }}{37}{figure.caption.100}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Dominios de tiempo y frecuencia de dominio Fuente: \href {https://medium.com/@venkateshpnk22/how-to-convert-your-speech-voice-to-text-data-1b2686099260}{\textit {https://medium.com}}\relax }}{38}{figure.caption.103}
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Etapas de extracci\IeC {\'o}n de caracter\IeC {\'\i }sticas Fuente: \textit {Fuente Propia}\relax }}{40}{figure.caption.110}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Aplicaci\IeC {\'o}n del filtro Mel Fuente: \href {https://www.researchgate.net/figure/Mel-Scale-Filter-Bank-14\_fig2\_280027126}{\textit {https://www.researchgate.net}}\relax }}{42}{figure.caption.123}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Esquema del HMM Fuente: \href {http://gekkoquant.com/2014/05/18/hidden-markov-models-model-description-part-1-of-4/}{\textit {http://gekkoquant.com}}\relax }}{43}{figure.caption.131}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces transformaci\IeC {\'o}n con la funci\IeC {\'o}n kernel Fuente: \href {http://www.statsoft.com/Textbook/Support-Vector-Machines}{\textit {www.statsoft.com}}\relax }}{44}{figure.caption.133}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces DTW Fuente: \href {https://lemonzi.files.wordpress.com/2013/01/dtw.pdf}{\textit {https://lemonzi.files.wordpress.com}}\relax }}{45}{figure.caption.135}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Aplicaci\IeC {\'o}n del filtro Mel Fuente: \href {https://www.researchgate.net/figure/Speech-signal-after-per-emphasis_fig7_305692039}{\textit {https://www.researchgate.net}}\relax }}{42}{figure.caption.119}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Framing de una se\IeC {\~n}al Fuente: \href {https://www.slideshare.net/niranjankumar47/final-project-new-49797350}{\textit {https://www.slideshare.net}}\relax }}{42}{figure.caption.121}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces hamming generalizado Fuente: \href {https://www.slideshare.net/niranjankumar47/final-project-new-49797350}{\textit {https://www.slideshare.net}}\relax }}{43}{figure.caption.124}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Aplicaci\IeC {\'o}n del filtro Mel Fuente: \href {https://www.researchgate.net/figure/Mel-Scale-Filter-Bank-14\_fig2\_280027126}{\textit {https://www.researchgate.net}}\relax }}{45}{figure.caption.129}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Esquema del HMM Fuente: \href {http://gekkoquant.com/2014/05/18/hidden-markov-models-model-description-part-1-of-4/}{\textit {http://gekkoquant.com}}\relax }}{46}{figure.caption.135}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces transformaci\IeC {\'o}n con la funci\IeC {\'o}n kernel Fuente: \href {http://www.statsoft.com/Textbook/Support-Vector-Machines}{\textit {www.statsoft.com}}\relax }}{47}{figure.caption.137}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces DTW Fuente: \href {https://lemonzi.files.wordpress.com/2013/01/dtw.pdf}{\textit {https://lemonzi.files.wordpress.com}}\relax }}{47}{figure.caption.139}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Ejemplo One hot encoding Fuente: \href {https://www.machinelearningplus.com/machine-learning/caret-package/attachment/one-hot-encoding/}{\textit {https://www.machinelearningplus.com/}}\relax }}{49}{figure.caption.164}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Ejemplo One hot encoding Fuente: \href {https://www.machinelearningplus.com/machine-learning/caret-package/attachment/one-hot-encoding/}{\textit {https://www.machinelearningplus.com/}}\relax }}{52}{figure.caption.168}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Esquema de RNN simple Fuente: \textit {Fuente Propia}\relax }}{59}{figure.caption.215}
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Esquema de LSTM simple Fuente: \textit {Fuente Propia}\relax }}{60}{figure.caption.217}
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Esquema de LSTM con dropout Fuente: \textit {Fuente Propia}\relax }}{61}{figure.caption.219}
-\contentsline {figure}{\numberline {A.4}{\ignorespaces Precisi\IeC {\'o}n de RNN para 500 epochs Fuente: {\textit {Fuente Propia}}\relax }}{62}{figure.caption.221}
-\contentsline {figure}{\numberline {A.5}{\ignorespaces Precisi\IeC {\'o}n de LSTM simple para 500 epochs Fuente: {\textit {Fuente Propia}}\relax }}{62}{figure.caption.222}
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Precisi\IeC {\'o}n de LSTM dropout 0.5 para 500 epochs Fuente: {\textit {Fuente Propia}}\relax }}{63}{figure.caption.223}
-\contentsline {figure}{\numberline {A.7}{\ignorespaces Precisi\IeC {\'o}n de LSTM dropout 0.8 para 500 epochs Fuente: {\textit {Fuente Propia}}\relax }}{63}{figure.caption.224}
-\contentsline {figure}{\numberline {A.8}{\ignorespaces Perdida de RNN para 500 epochs Fuente: {\textit {Fuente Propia}}\relax }}{64}{figure.caption.226}
-\contentsline {figure}{\numberline {A.9}{\ignorespaces Perdida de LSTM para 500 epochs Fuente: {\textit {Fuente Propia}}\relax }}{64}{figure.caption.227}
-\contentsline {figure}{\numberline {A.10}{\ignorespaces Perdida de LSTM dropout 0.8 para 500 epochs Fuente: {\textit {Fuente Propia}}\relax }}{65}{figure.caption.228}
-\contentsline {figure}{\numberline {A.11}{\ignorespaces Perdida de LSTM dropout 0.5 para 500 epochs Fuente: {\textit {Fuente Propia}}\relax }}{65}{figure.caption.229}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Esquema de RNN simple Fuente: \textit {Fuente Propia}\relax }}{62}{figure.caption.219}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Esquema de LSTM simple Fuente: \textit {Fuente Propia}\relax }}{63}{figure.caption.221}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Esquema de LSTM con dropout Fuente: \textit {Fuente Propia}\relax }}{64}{figure.caption.223}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Precisi\IeC {\'o}n de RNN para 400 epochs Fuente: {\textit {Fuente Propia}}\relax }}{65}{figure.caption.226}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Precisi\IeC {\'o}n de LSTM simple para 400 epochs Fuente: {\textit {Fuente Propia}}\relax }}{65}{figure.caption.227}
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Precisi\IeC {\'o}n de LSTM dropout 0.5 para 400 epochs Fuente: {\textit {Fuente Propia}}\relax }}{66}{figure.caption.228}
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Precisi\IeC {\'o}n de LSTM dropout 0.8 para 400 epochs Fuente: {\textit {Fuente Propia}}\relax }}{66}{figure.caption.229}
+\contentsline {figure}{\numberline {A.8}{\ignorespaces Perdida de RNN para 400 epochs Fuente: {\textit {Fuente Propia}}\relax }}{67}{figure.caption.231}
+\contentsline {figure}{\numberline {A.9}{\ignorespaces Perdida de LSTM para 500 epochs Fuente: {\textit {Fuente Propia}}\relax }}{67}{figure.caption.232}
+\contentsline {figure}{\numberline {A.10}{\ignorespaces Perdida de LSTM dropout 0.5 para 400 epochs Fuente: {\textit {Fuente Propia}}\relax }}{68}{figure.caption.233}
+\contentsline {figure}{\numberline {A.11}{\ignorespaces Perdida de LSTM dropout 0.5 para 400 epochs Fuente: {\textit {Fuente Propia}}\relax }}{68}{figure.caption.234}

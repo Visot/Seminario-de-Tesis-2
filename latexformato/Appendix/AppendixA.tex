@@ -58,27 +58,27 @@
 	\end{center}
 	\caption{Esquema de LSTM con dropout \\ Fuente:  \textit{Fuente Propia}}
 \end{figure}
-
-\section{Resultados de precisión de entrenamiento}
+\section{Pruebas cpn RNN , LSTM con MFCC y MFCC + Delta}
+\subsection{Resultados de precisión de entrenamiento}
 
 \begin{figure}[H]
 \centering
-	\includegraphics[width=0.8\textwidth]{Figures/RNNsimpleprec}
-	\caption{Precisión de RNN para 500 epochs\\ Fuente: {\textit{Fuente Propia}}}
+	\includegraphics[width=0.8\textwidth]{Figures/rnn_prec_400_13mfcc}
+	\caption{Precisión de RNN para 400 epochs\\ Fuente: {\textit{Fuente Propia}}}
 	\label{RNNSIMPLE}
 \end{figure} 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Figures/LSTMsimpleprec}
-	\caption{Precisión de LSTM simple para 500 epochs\\ Fuente: {\textit{Fuente Propia}}}
+	\includegraphics[width=0.8\textwidth]{Figures/lstm_400_prec_13mfcc}
+	\caption{Precisión de LSTM simple para 400 epochs\\ Fuente: {\textit{Fuente Propia}}}
 	\label{LSTMsimpel}
 \end{figure} 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Figures/LSTM_droprec05.png}
-	\caption{Precisión de LSTM dropout 0.5 para 500 epochs\\ Fuente: {\textit{Fuente Propia}}}
+	\includegraphics[width=0.8\textwidth]{Figures/lstm_400drop05_prec_13mfcc}
+	\caption{Precisión de LSTM dropout 0.5 para 400 epochs\\ Fuente: {\textit{Fuente Propia}}}
 	\label{LSTMdropout5}
 \end{figure} 
 
@@ -86,38 +86,42 @@
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Figures/lstm_drop08prec.png}
-	\caption{Precisión de LSTM dropout 0.8 para 500 epochs\\ Fuente: {\textit{Fuente Propia}}}
+	\includegraphics[width=0.8\textwidth]{Figures/lstm_400drop08_prec_13mfcc}
+	\caption{Precisión de LSTM dropout 0.8 para 400 epochs\\ Fuente: {\textit{Fuente Propia}}}
 	\label{LSTMdropout8}
 \end{figure} 
-\section{Resultados de función de perdida}
+
+
+\subsection{Resultados de función de perdida}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Figures/RNNsimplecost}
-	\caption{Perdida de RNN para 500 epochs\\ Fuente: {\textit{Fuente Propia}}}
+	\includegraphics[width=0.8\textwidth]{Figures/rnn_cost_400_13mfcc}
+	\caption{Perdida de RNN para 400 epochs\\ Fuente: {\textit{Fuente Propia}}}
 	\label{RNNSIMPLEcost}
 \end{figure} 
 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Figures/LSTMsimplecost}
+	\includegraphics[width=0.8\textwidth]{Figures/lstm_400_cost_13mfcc}
 	\caption{Perdida de LSTM para 500 epochs\\ Fuente: {\textit{Fuente Propia}}}
 	\label{LSTMsimplecost}
 \end{figure} 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Figures/lstm_drop08cost.png}
-	\caption{Perdida de LSTM dropout 0.8 para 500 epochs\\ Fuente: {\textit{Fuente Propia}}}
+	\includegraphics[width=0.8\textwidth]{Figures/lstm_400drop05_cost_13mfcc}
+	\caption{Perdida de LSTM dropout 0.5 para 400 epochs\\ Fuente: {\textit{Fuente Propia}}}
 	\label{LSTMdropout5cost}
 \end{figure} 
 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Figures/LSTM_drocost05.png}
-	\caption{Perdida de LSTM dropout 0.5 para 500 epochs\\ Fuente: {\textit{Fuente Propia}}}
+	\includegraphics[width=0.8\textwidth]{Figures/lstm_400drop08_cost_13mfcc}
+	\caption{Perdida de LSTM dropout 0.5 para 400 epochs\\ Fuente: {\textit{Fuente Propia}}}
 	\label{LSTMdropout8cost}
 \end{figure} 
+
+\section{Propuesta de modelo para reconocimiento de voz}

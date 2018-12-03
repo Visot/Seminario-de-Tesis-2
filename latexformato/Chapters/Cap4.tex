@@ -24,19 +24,24 @@ Consiste en la distribución de amplitudes para un valor dado de frecuencia de u
 \end{figure} 
 
 \subsection{Escala mel}
-Es una escala psicoacústica propuesta por Stevens, Volkman y Newman. Esta escala es muy importante debido a que la representación más usada en las señales de voz.
+Es una escala psicoacústica propuesta por Stevens, Volkman y Newman. Esta relaciona la frecuencia percibida con su frecuencia real medida además la uso de esta escala permite abstraer las características que coinciden más con lo que los seres humanos oyen.\\ 
+Esta escala es muy importante debido a que la representación más usada en las señales de voz.
+La ecuación 4.1 muestra la ecuación para convertir a la escala Mel.
+\begin{equation}
+\label{STg}
+\begin{aligned}
+m=1127.01048\log_{e}(1+f/700))
+\end{aligned}
+\end{equation}
+
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Figures/escala_mel.png}
 	\caption{Relación escala mel - Frecuencia\\ Fuente:  \href{https://www.researchgate.net/figure/Relacion-entre-frecuencia-en-Hz-eje-x-y-en-escala-Mel-eje-y_fig2_312041038}{\textit{https://www.researchgate.net}}}
 	\label{mel}
 \end{figure} 
-\begin{equation}
-	\label{STg}
-	\begin{aligned}
-	m=1127.01048\log_{e}(1+f/700))
-	\end{aligned}
-\end{equation}
+
 \subsection{Dominio de tiempo}
 Este dominio permite obtener la amplitud en un instante de tiempo dado existen dominio de tiempo discretos y continuos.
 \subsection{Dominio de frecuencia}
@@ -95,7 +100,7 @@ En este paso se asume que de los parámetros de las señales son producidas por 
 	\caption{Etapas de extracción de características \\ Fuente:  \textit{Fuente Propia}}
 \end{figure}
 \subsection{Algoritmos}
- A continuación describiremos algunos algoritmos que se usan para realizar este proceso.
+ A continuación describiremos algunos algoritmos que se usan para realizar este proceso, en la siguiente sección trateremos el algoritmo MFCC el cual es usado en este seminario
 \subsubsection{Real Cepstral Coefficient(RCC)}
 Este algoritmo convierte la señal del dominio de tiempo a dominio de frecuencia aplicando la transformada rápida de fourier a cada cuadro(frame). Luego se aplica le logaritmo y la transforma de fourier inversa. 
 \begin{equation}
@@ -110,21 +115,52 @@ Donde:
 	\item FFT: transformada rápida de fourier.
 	\item s(n): señal de voz.
 \end{itemize}
-\subsubsection{Mel Frequency Cepstral Coefficients (MFCC)}
-Es el algoritmo más usado en aplicaciones de reconocimiento de voz, esta basado en el sistema auditivo humano, el cual es sensible a 2 características dinámicas y estáticas. El MFCC se concentra principalmente en las características estáticas. A continuación describiremos el proceso de la MFCC.
-\begin{enumerate}
-	\item \textbf{Pre-emphasis\\}
-	En este paso la señal pasa a través de un filtro el cual enfatiza las altas frecuencia. Este proceso aumentará la potencia de la señal con mayor frecuencia.
-	\item \textbf{Framing\\}
-	Se realiza la segmentación de la señal de voz digital, es decir la señal es divida en pequeños intervalos(\textit{frames}), estos generalmente son del rango de 20ms a 30ms.
 
-	\item \textbf{Hamming windowing\\}
-	Se utiliza como una forma de ventana que trabajo con los bloques de la cadena de extracción de características y tiene la finalidad de integrar las frecuencias más cercanas.
+\subsubsection{Codificación lineal predictiva} 
+Este método también conocido como LCP considera que la señales de voz pueden ser expresadas como la combinación lineal de las anteriores, entonces podemos describir a la señal de voz utilizando los coeficientes de esta combinación lineal. Este método ha sido utilizado para el procesamiento de la señal de voz debido modela el comportamiento del tracto vocal.\\ En el ecuación 4.3 vemos como se expresa la señal de voz $s$ usando las p anteriores señales de voz y los $a_{k}$ representan \textit{coeficientes del LCP.}
+
+\begin{equation}
+\label{LPC}
+\begin{aligned}
+s(n)= \sum_{k=1}^{p}a_{k}s(n-k)+e(n)
+\end{aligned}
+\end{equation}
+
+\section{Mel Frequency Cepstral Coefficients (MFCC)}
+Es el algoritmo más usado en aplicaciones de reconocimiento de voz, esta basado en el sistema auditivo humano, el cual es sensible a 2 características dinámicas y estáticas. El MFCC se concentra principalmente en las características estáticas. A continuación describiremos el proceso de la MFCC.
+
+	\subsection{Pre-emphasis}
+	En este paso, la señal pasa a través de un filtro el cual enfatiza las altas frecuencia. Este proceso aumentará la potencia de la señal con mayor frecuencia. El pre-emphasis es necesario debido a que las señales con alta frecuencia tienen una amplitud menor y por medio este se puede compensar ese resultado. En la ecuación 4.4 vemos la aplicación de un filtro $s2$ para compensar esto donde $a$ es un valor entre $0.9$ y $1$.
+	\begin{equation}
+	\label{STs23}
+	\begin{aligned}
+		s2(n) = s(n) - a\times(n-1) 
+	\end{aligned}
+	\end{equation}
+	 \begin{figure}[H]
+	 	\centering
+	 	\includegraphics[width=0.6\textwidth]{Figures/emphasis.png}
+	 	\caption{Aplicación del filtro Mel \\ Fuente:  \href{https://www.researchgate.net/figure/Speech-signal-after-per-emphasis_fig7_305692039}{\textit{https://www.researchgate.net}}}
+	 	\label{onda}
+	 	
+	 \end{figure}
+	\subsection{Framing}
+	Se realiza la segmentación de la señal de voz digital, es decir la señal es divida en pequeños intervalos(\textit{frames}), estos generalmente son del rango de 20ms a 30ms. Un estándar usado es 25ms. Por ejemplo si la longitud de nuestro frame esta expresado en puntos de muestra 320 y nuestra frecuencia es 16kHz la duración de cada frame en segundo será $320/16000=0.02s$ o $20ms$ estos frames pueden solaparse. En la figura 4.7 mostramos los frame de una porción de la señal.
+	 \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Figures/framing.png}
+	\caption{Framing de una señal \\ Fuente:  \href{https://www.slideshare.net/niranjankumar47/final-project-new-49797350}{\textit{https://www.slideshare.net}}}
+	\label{ondaSS}
+	
+	\end{figure}
+	\subsection{Hamming windowing}
+	Esta proceso aplica una función usada para suavizar la señal y preparar para la aplicación de la DFT. Hamming windowing es usado en el análisis espectral de señales de voz debido a que en este método el espectro cae rápidamente por lo tanto la frecuencia resultante es mejor.
+
 	\begin{equation}
 	\label{STs3}
 	\begin{aligned}
-	Y(n)&= X(n) x W(n)\\
-	W(n)&=0.54-0.46\cos(\frac{2\pi n}{N-1})    0\leq n\leq N
+	Y(n)&= X(n) \times W(n)\\
+	W(n)&=(1-\alpha)-\alpha\cos(\frac{2\pi n}{N-1})    0\leq n\leq N
 	\end{aligned}
 	\end{equation}
 	\begin{itemize}
@@ -133,8 +169,16 @@ Es el algoritmo más usado en aplicaciones de reconocimiento de voz, esta basado
 		\item $X(n)$: Señal de entrada
 		\item $N$: Número de ejemplo en cada frame
 	\end{itemize}
-	\item \textbf{Transformada rápida de Fourier\\} 
-	Se encarga de transformar las muestras N del dominio de tiempo al dominio de frecuencia.
+	En la Figura 4.8 mostramos los distintas curvas de hamming windowing.
+		 \begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{Figures/hamming.png}
+		\caption{hamming generalizado \\ Fuente:  \href{https://www.slideshare.net/niranjankumar47/final-project-new-49797350}{\textit{https://www.slideshare.net}}}
+		\label{ondaSSs}
+		
+	\end{figure}
+	\subsection{Transformada rápida de Fourier (FFT)} 
+	El análisis espectral establece que a distintos timbres en la señal de voz le corresponde una distribución de energía diferente en la señal. El FFT tiene como objetivo obtener la magnitud de la frecuencia en cada frame. Cuando se realiza FTT en un frame se asume que la señal es periódica y continua, al aplicar FFT se transforma las muestras N del dominio de tiempo al dominio de frecuencia.
 	\begin{equation}
 		\label{TFF}
 		\begin{aligned}
@@ -148,8 +192,8 @@ Es el algoritmo más usado en aplicaciones de reconocimiento de voz, esta basado
 
 		\end{itemize}
 	
-	\item \textbf{Mel filter bank\\}
-	Debido a que el rango en el espectro de la Transformada rápida de Fourier es muy amplia y la señal de voz no sigue una escala lineal.
+	\subsection{Mel filter bank}
+	Debido a que el rango en el espectro de la Transformada rápida de Fourier es muy amplia y la señal de voz no sigue una escala lineal. Es necesario aplicar filtros triangulares en una escala mel estos filtros son aplicado al espectro de frecuencia y extraen la banda de frecuencias.
 	
 	La ecuación 4.5 se usa para calcular Mel para una frecuencia de tiempo.
 		\begin{equation}
@@ -166,9 +210,9 @@ Es el algoritmo más usado en aplicaciones de reconocimiento de voz, esta basado
 			\caption{Aplicación del filtro Mel \\ Fuente:  \href{https://www.researchgate.net/figure/Mel-Scale-Filter-Bank-14\_fig2\_280027126}{\textit{https://www.researchgate.net}}}
 			\label{onda}
 		\end{figure} 
-	\item \textbf{Discrete Cosine Transform (DCT)\\}
-	Este proceso se encarga de convertir el log del espectro Mel en un dominio de tiempo usando DCT. El resultado es llamado MFCC. El conjunto de coeficientes esa llamado vectores acústicos.
-	\item \textbf{Delta energy and Delta spectrum\\}
+	\subsection{Discrete Cosine Transform (DCT)}
+	Este proceso se encarga de convertir el log del espectro Mel en un dominio de tiempo usando DCT. El resultado de esta conversión es llamado MFCC. El conjunto de coeficientes esa llamado vectores acústicos.
+	\subsection{Delta energy and Delta spectrum}
 	La señal de voz junto con los cambios de frames necesitan añadir características relacionadas a los cambios en las características cepstrales sobre el tiempo. La energía en un frame de tiempo $t_{1}$ a $t_{2}$ esta dado por:
 	
 	\begin{equation}
@@ -177,16 +221,7 @@ Es el algoritmo más usado en aplicaciones de reconocimiento de voz, esta basado
 			Energia=\sum X^{2}(t)
 		\end{aligned}
 	\end{equation}	
-\end{enumerate}
-\subsubsection{Codificación lineal predictiva} 
-Este método también conocido como LCP considera que la señales de voz pueden ser expresadas como la combinación lineal de las anteriores, entonces podemos describir a la señal de voz utilizando los coeficientes de esta combinación lineal. Este método ha sido utilizado para el procesamiento de la señal de voz debido modela el comportamiento del tracto vocal.\\ En el ecuación 4.3 vemos como se expresa la señal de voz $s$ usando las p anteriores señales de voz y los $a_{k}$ representan \textit{coeficientes del LCP.}
 
-\begin{equation}
-\label{LPC}
-\begin{aligned}
-s(n)= \sum_{k=1}^{p}a_{k}s(n-k)+e(n)
-\end{aligned}
-\end{equation}
 
 
 
@@ -237,4 +272,4 @@ Es un método de programación dinámica que busca encontrar una alineación óp
 \end{figure} 
 
 \subsubsection{Redes Neuronales}
-Las redes neuronales descritas en el capítulo 3, luego de su entrenamiento serán capaces de reconocer los patrones de las señales de voz.
+Las redes neuronales descritas en el capítulo 3, luego de su entrenamiento serán capaces de reconocer los patrones de las señales de voz. Además las redes recurrentes nos permiten trabajar con las características dinámicas de la voz.

@@ -10,25 +10,35 @@ En el cuadro 6.1 podemos ver los resultados de probar distintos variantes de RNN
 	\centering
 	\begin{tabular}{|c|c|c|}
 		\hline
-		\rowcolor{Gray}  Modelo & Precisión test(\%) & Precisión Training \\ \hline
-		RNN&        10.00  &             19.16         \\ \hline
-		LSTM&        63.63  &          82.49           \\ \hline
-		LSTM Dropout(0.5)&  72.72         &     99.58                \\ \hline
-		LSTM Dropout(0.8)&	57.27		&	78.33		\\ \hline
+		\rowcolor{Gray}  Modelo & Precisión test(\%) & Precisión Training (\%)\\ \hline
+		RNN MFCC&        8.18  &             16.25        \\ \hline
+		RNN MFCC+DELTA&    9.09  &             11.25       \\ \hline
+		LSTM MFCC&        68.18  &          94.16         \\ \hline
+		LSTM MFCC+DELTA&  72.72  &             99.58       \\ \hline
+		LSTM Dropout(0.5) MFCC&  66.36         &     95.42           \\ \hline
+		LSTM Dropout(0.5) MFCC+ Delta &31.81 &99.16 \\\hline
+		LSTM Dropout(0.8) MFCC&	70.91		&	9541		\\ \hline
+		LSTM Dropout(0.8) MFCC+DELTA&	52.72		&	87.49	\\ \hline
 	\end{tabular}
-	\caption{Precisión de modelos para 500 iteraciones}
+	\caption{Precisión de modelos para 400 iteraciones}
 \end{table}
 \subsection{Errores }
-El cuadro 6.2 representa la tasa de error de los modelos 
+El cuadro 6.2 representa los errores que se resultaron durante el entrenamiento de nuestros modelos.
+
+
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|c|c|}
 		\hline
-		\rowcolor{Gray}  Modelo & Error test  & Error Training\\ \hline
-		RNN&        2.836         &2.099\\ \hline
-		LSTM&       1.323         & 0.363  \\ \hline
-		LSTM Dropout(0.5)&   1.612       &     0.011            \\ \hline
-		LSTM Dropout(0.8)&	1.408		&0.530\\ \hline
+		\rowcolor{Gray}  Modelo & Error test& Error Training \\ \hline
+		RNN MFCC&        2.431  &             2.234       \\ \hline
+		RNN MFCC+DELTA&  2.305  &             2.289      \\ \hline
+		LSTM MFCC&        1.084  &          0.193         \\ \hline
+		LSTM MFCC+DELTA&  2.26  &           0.008      \\ \hline
+		LSTM Dropout(0.5) MFCC&  1.64         &     0.145           \\ \hline
+		LSTM Dropout(0.5) MFCC+ Delta &4.327 &0.009 \\\hline
+		LSTM Dropout(0.8) MFCC&	1.342		&	0.177	\\ \hline
+		LSTM Dropout(0.8) MFCC+DELTA&	1.595		&	0.326	\\ \hline
 	\end{tabular}
 	\caption{Errores de los conjuntos test y training para 500 iteraciones}
 \end{table}
