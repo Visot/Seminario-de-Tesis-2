@@ -23,7 +23,7 @@ Consiste en la distribución de amplitudes para un valor dado de frecuencia de u
 	\label{señal}
 \end{figure} 
 
-\subsection{Escala mel}
+\subsection{Escala Mel}
 Es una escala psicoacústica propuesta por Stevens, Volkman y Newman. Esta relaciona la frecuencia percibida con su frecuencia real medida además la uso de esta escala permite abstraer las características que coinciden más con lo que los seres humanos oyen.\\ 
 Esta escala es muy importante debido a que la representación más usada en las señales de voz.
 La ecuación 4.1 muestra la ecuación para convertir a la escala Mel.
@@ -101,7 +101,7 @@ En este paso se asume que de los parámetros de las señales son producidas por 
 \end{figure}
 \subsection{Algoritmos}
  A continuación describiremos algunos algoritmos que se usan para realizar este proceso, en la siguiente sección trateremos el algoritmo MFCC el cual es usado en este seminario
-\subsubsection{Real Cepstral Coefficient(RCC)}
+\subsubsection{Real Cepstral Coefficient (RCC)}
 Este algoritmo convierte la señal del dominio de tiempo a dominio de frecuencia aplicando la transformada rápida de fourier a cada cuadro(frame). Luego se aplica le logaritmo y la transforma de fourier inversa. 
 \begin{equation}
 \label{STs}
@@ -126,7 +126,7 @@ s(n)= \sum_{k=1}^{p}a_{k}s(n-k)+e(n)
 \end{aligned}
 \end{equation}
 
-\section{Mel Frequency Cepstral Coefficients (MFCC)}
+\section{Mel Frequency Cepstral Coefficients (MFCC)}\label{MFCC}
 Es el algoritmo más usado en aplicaciones de reconocimiento de voz, esta basado en el sistema auditivo humano, el cual es sensible a 2 características dinámicas y estáticas. El MFCC se concentra principalmente en las características estáticas. A continuación describiremos el proceso de la MFCC.
 
 	\subsection{Pre-emphasis}
@@ -212,8 +212,8 @@ Es el algoritmo más usado en aplicaciones de reconocimiento de voz, esta basado
 		\end{figure} 
 	\subsection{Discrete Cosine Transform (DCT)}
 	Este proceso se encarga de convertir el log del espectro Mel en un dominio de tiempo usando DCT. El resultado de esta conversión es llamado MFCC. El conjunto de coeficientes esa llamado vectores acústicos.
-	\subsection{Delta energy and Delta spectrum}
-	La señal de voz junto con los cambios de frames necesitan añadir características relacionadas a los cambios en las características cepstrales sobre el tiempo. La energía en un frame de tiempo $t_{1}$ a $t_{2}$ esta dado por:
+	%--\subsection{Delta energy and Delta spectrum}
+%--	La señal de voz junto con los cambios de frames necesitan añadir características relacionadas a los cambios en las características cepstrales sobre el tiempo. La energía en un frame de tiempo $t_{1}$ a $t_{2}$ esta dado por:
 	
 	\begin{equation}
 		\label{energia}
@@ -229,7 +229,7 @@ Es el algoritmo más usado en aplicaciones de reconocimiento de voz, esta basado
 A continuación se describirán algunos algoritmos usados para las tareas de las coincidencias de patrones.
 
 \subsubsection{Modelo oculto de Markov (HMM)}
-Es un modelo estadístico donde asumimos que nuestro sistema es un proceso de markov con parámetros desconocidos. A continuación se describirá el proceso en la figura 4.7
+Es un modelo estadístico donde asumimos que nuestro sistema es un proceso de markov con parámetros desconocidos. A continuación se describirá el proceso en la figura 4.10
 
 \begin{figure}[H]
 	\centering
@@ -253,7 +253,7 @@ Las SVM pueden tener distintos tipos de kernels que tienen como objetivo tomar l
 	\item Radial: $\ker(x_{i},x_{j})= e^{(\gamma |x_{i} - x_{j}|)}$
 	\item Sigmoidal: $\ker(x_{i},x_{j})= \tanh ( \gamma x_{i} \cdot x_{j}+C)$
 \end{itemize}
-En la figura 4.7 muestra el efecto de las funciones kernels en un conjunto de datos para que este sea linealmente separable sin necesidad de construir curvas complejas.\\
+En la figura 4.11 muestra el efecto de las funciones kernels en un conjunto de datos para que este sea linealmente separable sin necesidad de construir curvas complejas.\\
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{Figures/svm.png}
@@ -262,7 +262,7 @@ En la figura 4.7 muestra el efecto de las funciones kernels en un conjunto de da
 \end{figure} 
 
 \subsubsection{Alineamiento temporal dinámico (DTW)}
-Es un método de programación dinámica que busca encontrar una alineación óptima entre 2 series de tiempo. El algoritmo trata de buscar deformaciones entre las series de tiempo y determina la similitudes entre ambas series. Esto nos permite tener una robustez en caso de grupos fonéticos en el audio tenga una duración más prolongada.\\ En la figura 4.6 se muestra 2 series de tiempo donde se trazan las coincidencias entre ambas series.
+Es un método de programación dinámica que busca encontrar una alineación óptima entre 2 series de tiempo. El algoritmo trata de buscar deformaciones entre las series de tiempo y determina la similitudes entre ambas series. Esto nos permite tener una robustez en caso de grupos fonéticos en el audio tenga una duración más prolongada.\\ En la figura 4.12 se muestra 2 series de tiempo donde se trazan las coincidencias entre ambas series.
 
 \begin{figure}[H]
 	\centering
@@ -270,6 +270,6 @@ Es un método de programación dinámica que busca encontrar una alineación óp
 	\caption{DTW\\ Fuente:  \href{https://lemonzi.files.wordpress.com/2013/01/dtw.pdf}{\textit{https://lemonzi.files.wordpress.com}}}
 	\label{onda}
 \end{figure} 
-
+\newpage
 \subsubsection{Redes Neuronales}
-Las redes neuronales descritas en el capítulo 3, luego de su entrenamiento serán capaces de reconocer los patrones de las señales de voz. Además las redes recurrentes nos permiten trabajar con las características dinámicas de la voz.
+Las redes neuronales descritas en el capítulo 3, luego de su entrenamiento serán capaces de reconocer los patrones de las señales de voz. Además las redes recurrentes nos permiten trabajar con las características dinámicas de la voz. Nuestra red será alimentadas con los coeficientes MFCC. Los esquemas de estas redes pueden ser vistas en el Apéndice A.1

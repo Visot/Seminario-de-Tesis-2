@@ -1,16 +1,19 @@
 \chapter{Conclusiones y Trabajo Futuro}
-En este capítulo se describirán las conclusiones generales que se encontraron al probar y estudiar las variantes de RNN al momento de realizar una tarea de clasificación con le conjunto de datos utilizado.
+En este capítulo se describirán las conclusiones generales que se encontraron al probar y estudiar las variantes de RNN al momento de realizar una tarea de clasificación en el conjunto de datos utilizado.
 
 Además, se propondrán algunas mejoras para que el trabajo obtenga mejores
-resultados
+resultados en el futuro.
 
 \section{Conclusiones}
 
 \begin{itemize}
-	\item Las redes LSTM obtuvieron mejores resultados contra el RNN simple.
-	\item La RNN simple dejo de aprender debido al problema de desaparición de gradiente.
-	\item El algoritmo MFCC permite extraer las características necesarias para el procesamiento de la señal.
+	\item El uso 2 capas LSTM y dropout de 0.4 mejoran el rendimiento de nuestro modelo además manejar mejor el problema de overfitting
+	\item Las redes LSTM obtuvieron mejores resultados contra el RNN simple debido a su capacidad de manejar el problema de desaparición de gradiente.
+	\item El número de estados ocultos puede acelerar el proceso de entrenamiento pero puede generar efectos de overfitting, por lo cual se obtiene un mejor rendimiento el estado oculto de 64. 
+	\item El algoritmo MFCC permite extraer las características necesarias para el procesamiento de la señal de voz.
 	\item Los audios con distintos tiempos incrementan el número de lapsos tiempos en que desenrolla la red lo cual impide una mejor precisión.
+	\item La cantidad de epochs requeridos es menor en las redes con una sola capa LSTM pero estas tienden a caer en problemas de overfitting.	
+	
 	
 \end{itemize}
 

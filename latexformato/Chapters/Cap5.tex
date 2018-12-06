@@ -54,27 +54,11 @@ La distribución de acuerdo a la cantidad de audios con Voces Femeninas(VF) y Vo
 \subsection{Tratamiento de los datos}
 
 \subsubsection{Conversión de formato}
-Los audios proporcionados por algunos hablantes se encontraban en un formato ogg, el cual tuvo que ser transformado al formato wav para su procesamiento esto debido a que ogg es más formato usado en teléfonos moviles mientras que el formato wav es más estándar.
-\begin{lstlisting}[language=Bash,caption=Bash para conversión de formato,captionpos=b]
-# itera los archivos .ogg
-for i in *.ogg;
-# realiza la conversion ogg a wav usando ffmpeg
-do ffmpeg -i "$i" "${i%.*}.wav"; 
-done
+Los audios proporcionados por algunos hablantes se encontraban en un formato ogg, el cual tuvo que ser transformado al formato wav para su procesamiento esto debido a que ogg es más formato usado en teléfonos moviles mientras que el formato wav es más estándar. En el Apéndice \ref{converter} podemos observar el código usado.
 
-\end{lstlisting}
 \subsection{Obtención de coeficientes cepstrales}
-Nuestro modelo será alimentado con audios pero antes se necesita obtener la información más importante y eliminar el ruido de fondo. Para esto utilizamos el algoritmo de extracción de características MFCC  (Ver Cap4.).\\  Para estas tareas hacemos uso de las librerías: \textit{librosa, sklearn y numpy}.\\\ Estas son usadas en el código 5.2. donde se obtiene 20 coeficientes cepstrales de una muestra.
-\begin{lstlisting}[language=Python,caption=Obtención de MFCC,captionpos=b]
-# cargado del audio
-wave, sr = librosa.load(DIR+dir, mono=True)
-# obtencion de los coeficientes
-features= librosa.feature.mfcc(wave, sr,n_mfcc=20)
-#padding con ceros asegurar misma dimension de salida
-features=np.pad(features,((0,0),(0,160-len(features[0]))),
-mode='constant',constant_values=0)
+Nuestro modelo será alimentado con audios pero antes se necesita obtener la información más importante y eliminar el ruido de fondo. Para esto utilizamos el algoritmo de extracción de características MFCC  (Ver Cap. \ref{MFCC}).\\  Para estas tareas hacemos uso de las librerías: \textit{librosa, sklearn y numpy}.\\\ Estas son usadas en el código \ref{MFCCC} donde se obtiene 13 coeficientes cepstrales de una muestra.
 
-\end{lstlisting}
 
 \subsection{One Hot encoding }
 Para entrenar nuestro modelo necesitamos representar nuestras clases o variables categóricas de manera numérica la cual es más útil para tareas de clasificación y regresión. Una forma de lograr esto es mediante el uso de One Hot enconding. En la figura 5.1 podemos representar las clases red, green y blue, en vectores únicos de dimensión 3.
@@ -85,65 +69,76 @@ Para entrenar nuestro modelo necesitamos representar nuestras clases o variables
 	\caption{Ejemplo One hot encoding \\ Fuente:  \href{https://www.machinelearningplus.com/machine-learning/caret-package/attachment/one-hot-encoding/}{\textit{https://www.machinelearningplus.com/}}}
 	\label{one}
 \end{figure} 
-En nuestra implementación fue necesario encontrar una representación para nuestras 10 clases de números. A continuación mostramos el código que nos permitió hallar esa representación.
-\begin{lstlisting}[language=Python,caption=one hot encoding,captionpos=b,xleftmargin=.05\textwidth]
-# importacion de libreria
-from sklearn.preprocessing import OneHotEncoder
-# vocabulario de clases definidas
-vocabulary_words=np.array(['cero','uno','dos','tres',
-'cuatro','cinco','seis','siete','ocho','nueve'])
-# creacion del objeto OneHotEncoder
-onehot_encoder = OneHotEncoder(handle_unknown='ignore',
-categories='auto')
-# entrenamiento del OneHotEncoder en base a las clases definidas
-onehot_encoder.fit(X=vocabulary_words.reshape(-1,1))
-\end{lstlisting}
+En nuestra implementación fue necesario encontrar una representación para nuestras 10 clases de números. El código puede ser encontrado en el Apéndice \ref{onehot} .
+
 
 \section{Modelo de la red neuronal}
 
-En esta sección  veremos algunos modelos que fueron entrenados para la tarea de clasificación de audios de números estos serán probados con un solo tipo de redes RNN y en especial su derivado LSTM.
+En esta sección  veremos algunos modelos que fueron entrenados para la tarea de clasificación de audios de números estos serán probados con un solo tipo de redes RNN(ver \ref{redesrecurrentes}) y en especial su derivado LSTM(ver \ref{lstmlabel}).
 \subsection{RNN}
-Definimos un red neuronal con una sola capa RNN y una capa densamente conectada.
+Definimos un red neuronal con una sola capa RNN y una capa densamente conectada( ver Figura \ref{RNNNNN}). Esta red será probada con distintas cantidades de estados ocultos. Podemos ver el código de esta red en \ref{RNNCODE}
 
-\begin{lstlisting}[language=Python,caption=Modelo LSTM,captionpos=b,xleftmargin=.05\textwidth]
-# establece la secuencia para empezar con el apilado de capas
-model=tf.keras.Sequential()
-# se apila una capa RNN simple 
-model.add(tf.keras.layers.SimpleRNN(128, input_shape=(time_steps,n_inputs)))
-# establece una capa densamente conectada
-model.add(tf.layers.Dense(n_class, activation='softmax'))
-
-\end{lstlisting}
 
 
 \subsection{LSTM}
-Para LSTM veremos modelo sin la aplicación de la capa Dropout y modelos con esta capa.
+Las redes LSTM son tipo de redes recurrentes especial que resuelven las dificultades de las RNN simples.
+Dentro de las redes LSTM usaremos el esquema sin Dropout(\ref{LSTMESQUEMA}) y con Dropout(\ref{LSTMESQUEMA1DROP}). Los códigos de estos modelos son encontrados en los códigos \ref{LSTMCODE} y \ref{LSTMCODEDROP}.
 
 
-Nuestro modelo fue definido usando keras como muestra el código 5.3 
+\subsection{2 capas LSTM y 2 Dropout}
+Adicionalmente se diseño una red con más de 2 capas LSTM para realizar las tareas de reconocimiento de voz. El esquema de esta red puede ser encontrado en \ref{2LSTMESQUEMA} y la implementación puede ser visto en el código \ref{2LSTM2DROPCODE} del Apéndice.
 
-\begin{center}
-\begin{lstlisting}[language=Python,caption=Modelo LSTM,captionpos=b,xleftmargin=.05\textwidth]
-# usado para apilar las capas de la red
-model=tf.keras.Sequential()
-# apila una capa LSTM
-model.add(tf.keras.layers.LSTM(n_units,
- input_shape=(time_steps,n_inputs)))
-# apila un Dropout a nuestra red para evitar overfitting
-model.add(tf.keras.layers.Dropout(0.5))
-# establece una capa densamente conectada
-model.add(tf.layers.Dense(n_class, activation='softmax'))
+\subsubsection{Categorical Crossentropy}
 
+Para entrenamiento de nuestro modelos usaremos categorical crossentropy como nuestra función de perdida.
+	\begin{equation}
+\label{CCE}
+\begin{aligned}
+CCE=-\frac{1}{N}\sum_{i=0}^{N}\sum_{j=0}^{J} y_{j}\log(\hat{y_{j}})+(1-y_{j})\log(1-\hat{y_{j}})
+\end{aligned}
+\end{equation}
+\begin{itemize}
+	\item N: cantidad del conjunto training
+	\item J: cantidad de clases
+\end{itemize}
 
-\end{lstlisting}
-\end{center}
+\subsubsection{Adam}
+Como algoritmo de optimización utilizaremos Adam, calcula una tasa de aprendizaje adaptativo para cada parámetro y es usado para optimizar la gradiente de descenso.
+En la ecuación 5.2 mostramos el cálculo del promedio de decaimiento de las gradientes pasadas $m_{t}$ y el cuadrado de las gradientes pasadas $v_{t}$
+\begin{equation}
+\label{adam1}
+\begin{aligned}
+m_{t} &= \beta_{1} m_{t-1} +(1-\beta_{1})g_{t} \\
+v_{t} &= \beta_{2} v_{t-1} +(1-\beta_{2})g_{t}^2
+\end{aligned}
+\end{equation}
 
+\begin{itemize}
+	\item $m_{t}:$ Primer momento (media)
+	\item $v_{t}:$ Segundo momento de la gradiente
+	\item $\beta_{1}:$ Taza de decaimiento del primer momento.
+	\item $\beta_{2}:$ Taza de decaimiento del segundo momento.
+\end{itemize}
+En la ecuación 5.3 mostramos la forma de calcular estimado de la primer y segundo momento.
+\begin{equation}
+\label{adam2}
+\begin{aligned}
+\hat{m_{t}}&= \frac{m_{t}}{1-\beta_{1}^{t}} \\
+\hat{v_{t}} &= \frac{v_{t}}{1-\beta_{2}^{t}}
+\end{aligned}
+\end{equation}
 
+\begin{itemize}
+	\item $\hat{m_{t}}:$ Estimación del Primer momento (media)
+	\item $\hat{v_{t}}:$ Estimación del Segundo momento de la gradiente.
+\end{itemize}
 
-Para entrenamiento de nuestro modelos usaremos los parámetros mostrados en el código 5.4, categorical crossentropy será nuestra función de perdida y nuestro optimizador será Adam.s
+La ecuación 5.4 muestra la regla de actualización en Adam. Se utiliza el $\epsilon$ para prevenir una división por cero.
+\begin{equation}
+\label{adam3}
+\begin{aligned}
+\theta_{t+1}&= \theta_{t+1} - \frac{\eta}{\sqrt{\hat{v_{t}}}+\epsilon} \hat{m_{t}}	
+\end{aligned}
+\end{equation}
 
-\begin{lstlisting}[language=Python,caption=Parámetros para el entrenamiento del modelo,captionpos=b,xleftmargin=.05\textwidth]
-# configura el entrenamiento del modelo
-model.compile(loss='categorical_crossentropy',
-optimizer='adam',metrics=['accuracy'])
-\end{lstlisting}
+En el código 5.7 mostramos el uso del función de perdida y el optimizador como parte de la configuración de nuestro modelo.

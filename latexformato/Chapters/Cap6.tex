@@ -3,42 +3,143 @@ En este capítulo se discutirán los resultados obtenidos durante el entrenamien
 Para estas pruebas usamos el conjunto de datos descrito en el capítulo. Estos resultados fueron
 obtenidos usando una computadora con tarjeta gráfica NVIDIA GTX950M con
 un total de 640 núcleos y una memoria de 4GB.
-Estos resultados fueron obtenidos utilizando distintos esquema de redes neuronales(ver Apéndice A.1)
+Estos resultados fueron obtenidos utilizando distintos esquema de redes neuronales(ver Apéndice \ref{esquemas})
 \subsection{Precisión}
-En el cuadro 6.1 podemos ver los resultados de probar distintos variantes de RNN las gráficas de la precisión en cada epochs se pueden ver en el Apéndice A.2. Estos resultados muestran que una RNN obtiene menor precisión que su variantes. Entre estas variantes es claro que LSTM Dropout(0.5) esta comenzando el overfitting. Sin embargo al aumentar la probabilidad del dropout se evita este problema a cambio de una precisión más baja. De estos resultados es notorio que el LSTM con una sola capa tuvo mejores resultados sin caer en overfitting.
+En el cuadro 6.1 podemos ver los resultados de probar distintos variantes de RNN las gráficas de la precisión en cada epochs se pueden ver en el Apéndice \ref{precision}.\\ Los resultados presentados a continuación fueron realizados con distintas cantidades de estados ocultos $h_{t}$ .
+\subsubsection{64 estados ocultos}
+Para 64 estados ocultos observamos en las figuras del Apéndice \ref{64stateprec} mostrarán el comportamiento del training para 400 epochs. Notamos RNN oscila constantemente(ver \ref{RNNSIMPLE64}) y no supera el 16\% de presión. Al aplicar redes LSTM se alcanzan precisiones más altas pero a una cantidad de epochs determinada alrededor del epochs 200 la precisión del test se mantiene para una \textit{LSTM simple} y \textit{LSTM con Dropout 0.5} . Al aplicar un Dropout de 0.8 se logra superar más el problema sin acercarse más al overfitting.\\ \\
+El cuadro 6.1 muestra los resultados de precisión de los conjuntos test y training durante el entrenamiento luego de 300 epochs. Notamos que los mejores resultados sin llegar a overfitting son de LSTM simple y LSTM dropout (0.8).
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|c|c|}
 		\hline
 		\rowcolor{Gray}  Modelo & Precisión test(\%) & Precisión Training (\%)\\ \hline
-		RNN MFCC&        8.18  &             16.25        \\ \hline
-		RNN MFCC+DELTA&    9.09  &             11.25       \\ \hline
-		LSTM MFCC&        68.18  &          94.16         \\ \hline
-		LSTM MFCC+DELTA&  72.72  &             99.58       \\ \hline
-		LSTM Dropout(0.5) MFCC&  66.36         &     95.42           \\ \hline
-		LSTM Dropout(0.5) MFCC+ Delta &31.81 &99.16 \\\hline
-		LSTM Dropout(0.8) MFCC&	70.91		&	9541		\\ \hline
-		LSTM Dropout(0.8) MFCC+DELTA&	52.72		&	87.49	\\ \hline
+		RNN &      10.90   &                14.58  \\ \hline
+		
+		LSTM &        40.00 &          73.75       \\ \hline
+		
+		LSTM Dropout(0.5) MFCC&  31.81    &     98.33       \\ \hline
+		
+		LSTM Dropout(0.8) MFCC&	0.55		&	77.91		\\ \hline
+		
 	\end{tabular}
-	\caption{Precisión de modelos para 400 iteraciones}
+	\caption{Precisión de modelos para 300 iteraciones y 64 estados ocultos}
+\end{table}
+
+
+\subsubsection{128 estados ocultos}
+
+En el Apéndice \ref{128stateprec} encontramos las gráficas de precisión para nuestros modelos con 128 estados ocultos. Notamos que el LSTM simple llega al overfitting luego de 250 epochs, mientras que los modelos con dropout obtiene una precisión de alrededor de 40\% a 60\% durante las primeras ejecuciones. Con estos estados ocultos el LSTM resulto ser un mejor modelo durante los primeros 200 epochs(Ver figura \ref{LSTMsimpel} del Apéndice ).\\ El cuadro 6.2 muestra los resultados luego de 300 epochs donde los dropout obtienen mejor resultado que el LSTM y RNN pero aún se acerca al overfitting.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\rowcolor{Gray}  Modelo & Precisión test(\%) & Precisión Training (\%)\\ \hline
+		RNN &        9.09  &             17.50   \\ \hline
+
+		LSTM &        75.45  &          99.16      \\ \hline
+
+		LSTM Dropout(0.5) MFCC&  60.00         &     93.74         \\ \hline
+
+		LSTM Dropout(0.8) MFCC&	67.27		&	93.74		\\ \hline
+
+	\end{tabular}
+	\caption{Precisión de modelos para 300 iteraciones y 128 estados ocultos}
+\end{table}
+\subsubsection{256 estados ocultos}
+Los siguientes resultados son tomados de las gráficas en \ref{256stateprec}. Notamos que con 256 estados ocultos rápidamente se obtuvieron resultados prometedores para una LSTM simple pero luego de los 200 epochs comenzó a caer en overfitting. Los modelos con dropout retrasaron el overfitting, este fue más notorio a partir de los 250 epochs(Ver figuras de \ref{256stateprec}).\\ El cuadro 6.3 muestra la precisión para 300 epochs.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\rowcolor{Gray}  Modelo & Precisión test(\%) & Precisión Training (\%)\\ \hline
+		RNN MFCC&        9.09  &             17.50      \\ \hline
+		
+		LSTM MFCC&        78.18  &          99.58         \\ \hline
+		
+		LSTM Dropout(0.5) MFCC&  76.36         &     96.66         \\ \hline
+		
+		LSTM Dropout(0.8) MFCC&	82.57		&	92.91		\\ \hline
+		
+	\end{tabular}
+	\caption{Precisión de modelos para 300 iteraciones y 256 estados ocultos}
 \end{table}
 \subsection{Errores }
-El cuadro 6.2 representa los errores que se resultaron durante el entrenamiento de nuestros modelos.
+El cuadro 6.2 representa los errores que se resultaron durante el entrenamiento de nuestros modelos con distintas cantidades de estados ocultos.
+\subsubsection{64 estados ocultos}
+Los errores obtenidos fueron obtenidos en base los resultados de \ref{64statecost}. Se muestra en el cuadro 6.4 que los errores para 300 epochs en los modelos RNN y LSTM Dropout 0.5 tuvieron los errores más altos.	Mientras que el modelo más estable fue LSTM con Dropout 0.8. 
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\rowcolor{Gray}  Modelo & Error test& Error Training \\ \hline
+		RNN MFCC&        2.378  &             2.235       \\ \hline
+		LSTM MFCC&        1.960 &          0.598     \\ \hline
+		LSTM Dropout(0.5) MFCC&  3.074         &    0.073        \\ \hline
+		LSTM Dropout(0.8) MFCC&	1.419		&	0.581	\\ \hline
+	\end{tabular}
+	\caption{Errores de los conjuntos test y training para 300 iteraciones y 64 estados ocultos}
+\end{table}
+
+\subsubsection{128 estados ocultos}
+Para 300 epochs todos lo modelos caen en overfitting(ver figuras de \ref{128statecost}) para el training. Sin embargo podemos observar en el \ref{128statecost} que el LSTM simple resulta tener menor error durante las primeras 200 epochs(Ver figura \ref{RNNSIMPLEcost})
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\rowcolor{Gray}  Modelo & Error test& Error Training \\ \hline
+		RNN MFCC&        2.414  &             2.240      \\ \hline
+		LSTM MFCC&        1.489  &          0.011       \\ \hline
+		LSTM Dropout(0.5) MFCC& 1.647         &     0.230          \\ \hline
+		LSTM Dropout(0.8) MFCC&	1.329		&	0.2150	\\ \hline
+	\end{tabular}
+	\caption{Errores de los conjuntos test y training para 400 iteraciones y 128 estados ocultos}
+\end{table}
+\subsubsection{256 estados ocultos}
+Al aumentar los estados ocultos se nota (ver figuras de \ref{256statecost}) que el LSTM simple resulta ser más estable que su derivados con Dropout en los primeros 100 epochs el error decrecen drásticamente y se mantiene cercano al error del training.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\rowcolor{Gray}  Modelo & Error test& Error Training \\ \hline
+		RNN MFCC&        2.427 &             2.242     \\ \hline
+		LSTM MFCC&        1.3170  &          0.008    \\ \hline
+		LSTM Dropout(0.5) MFCC&  0.815       &     0.148        \\ \hline
+		LSTM Dropout(0.8) MFCC&	0.825		&	0.224	\\ \hline
+	\end{tabular}
+	\caption{Errores de los conjuntos test y training para 300 iteraciones y 256 estados ocultos}
+\end{table}
+
+\subsection{Modelo para reconocimiento de voz}
+A continuación se presentan los resultados obtenidos por el modelo de 2 capas LSTM y 2 dropout(ver esquema \ref{2LSTMESQUEMA})
+\subsubsection{Precisión}
+. La figura \ref{fig:modelprec} nos muestra la precisión de nuesro modelo. Este es más controlado debido a los 2 dropout que evitan el overfitting.
+En el cuadro 6.7 observamos que obtuvimos una precisión de 65.45\%, este fue mejor que los anteriores debido a que no cayo en overfitting.
 
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|c|c|c|}
 		\hline
-		\rowcolor{Gray}  Modelo & Error test& Error Training \\ \hline
-		RNN MFCC&        2.431  &             2.234       \\ \hline
-		RNN MFCC+DELTA&  2.305  &             2.289      \\ \hline
-		LSTM MFCC&        1.084  &          0.193         \\ \hline
-		LSTM MFCC+DELTA&  2.26  &           0.008      \\ \hline
-		LSTM Dropout(0.5) MFCC&  1.64         &     0.145           \\ \hline
-		LSTM Dropout(0.5) MFCC+ Delta &4.327 &0.009 \\\hline
-		LSTM Dropout(0.8) MFCC&	1.342		&	0.177	\\ \hline
-		LSTM Dropout(0.8) MFCC+DELTA&	1.595		&	0.326	\\ \hline
+		\rowcolor{Gray}  Modelo 2LSTM 2 Dropout & Precisión test(\%) & Precisión Training (\%)\\ \hline
+		64 estados ocultos&     65.45    &                87.50  \\ \hline
+		128 estados ocultos&	70.91		&					90.83	\\ \hline
+		256 estados ocultos&	70.91		&					90.83	\\ \hline
 	\end{tabular}
-	\caption{Errores de los conjuntos test y training para 500 iteraciones}
+	\caption{Precisión de modelos para 500 iteraciones }
+\end{table}
+\subsubsection{Errores}
+La figura \ref{fig:modelcost} vemos como el error varia a lo largo de las iteraciones. Apartir del epochs 300 el error no supera el valor de 2 y más controlado a medida que se realiza el entrenamiento. 
+\newpage
+El cuadro 6.8 nos muestra el error final luego de 500 iteraciones.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\rowcolor{Gray}  Modelo 2LSTM 2 Dropout & Error test& Error Training \\ \hline
+		64 estados ocultos ()&        1.5330 &             0.3858     \\ \hline
+		128 estados ocultos	&		1.2617 	&				0.3413   \\ \hline
+		256 estados ocultos	&				&				0.3413   \\ \hline
+	\end{tabular}
+	\caption{Errores de los conjuntos test y training para 500 iteraciones y 64 estados ocultos}
 \end{table}
