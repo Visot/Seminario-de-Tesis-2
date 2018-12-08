@@ -4,17 +4,17 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Divisi\IeC {\'o}n del conjunto de datos\relax }}{50}{table.caption.144}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Distribuci\IeC {\'o}n de hablantes del conjunto de datos por sexo\relax }}{50}{table.caption.145}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Divisi\IeC {\'o}n del conjunto en base a la cantidad de audios con voces femeninas y masculinas\relax }}{50}{table.caption.146}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Divisi\IeC {\'o}n del conjunto de datos\relax }}{51}{table.caption.144}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Distribuci\IeC {\'o}n de hablantes del conjunto de datos por sexo\relax }}{51}{table.caption.145}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Divisi\IeC {\'o}n del conjunto en base a la cantidad de audios con voces femeninas y masculinas\relax }}{51}{table.caption.146}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Precisi\IeC {\'o}n de modelos para 300 iteraciones y 64 estados ocultos\relax }}{56}{table.caption.165}
-\contentsline {table}{\numberline {6.2}{\ignorespaces Precisi\IeC {\'o}n de modelos para 300 iteraciones y 128 estados ocultos\relax }}{56}{table.caption.167}
-\contentsline {table}{\numberline {6.3}{\ignorespaces Precisi\IeC {\'o}n de modelos para 300 iteraciones y 256 estados ocultos\relax }}{57}{table.caption.169}
-\contentsline {table}{\numberline {6.4}{\ignorespaces Errores de los conjuntos test y training para 300 iteraciones y 64 estados ocultos\relax }}{58}{table.caption.172}
-\contentsline {table}{\numberline {6.5}{\ignorespaces Errores de los conjuntos test y training para 400 iteraciones y 128 estados ocultos\relax }}{58}{table.caption.174}
-\contentsline {table}{\numberline {6.6}{\ignorespaces Errores de los conjuntos test y training para 300 iteraciones y 256 estados ocultos\relax }}{59}{table.caption.176}
-\contentsline {table}{\numberline {6.7}{\ignorespaces Precisi\IeC {\'o}n de modelos para 500 iteraciones y 64 estados ocultos\relax }}{59}{table.caption.179}
-\contentsline {table}{\numberline {6.8}{\ignorespaces Errores de los conjuntos test y training para 500 iteraciones y 64 estados ocultos\relax }}{60}{table.caption.181}
+\contentsline {table}{\numberline {6.1}{\ignorespaces Precisi\IeC {\'o}n de modelos para 300 iteraciones y 64 estados ocultos\relax }}{58}{table.caption.167}
+\contentsline {table}{\numberline {6.2}{\ignorespaces Precisi\IeC {\'o}n de modelos para 300 iteraciones y 128 estados ocultos\relax }}{60}{table.caption.173}
+\contentsline {table}{\numberline {6.3}{\ignorespaces Precisi\IeC {\'o}n de modelos para 300 iteraciones y 256 estados ocultos\relax }}{63}{table.caption.177}
+\contentsline {table}{\numberline {6.4}{\ignorespaces Errores de los conjuntos test y training para 300 iteraciones y 64 estados ocultos\relax }}{66}{table.caption.183}
+\contentsline {table}{\numberline {6.5}{\ignorespaces Errores de los conjuntos test y training para 400 iteraciones y 128 estados ocultos\relax }}{68}{table.caption.189}
+\contentsline {table}{\numberline {6.6}{\ignorespaces Errores de los conjuntos test y training para 300 iteraciones y 256 estados ocultos\relax }}{71}{table.caption.193}
+\contentsline {table}{\numberline {6.7}{\ignorespaces Precisi\IeC {\'o}n de modelos para 500 iteraciones \relax }}{72}{table.caption.198}
+\contentsline {table}{\numberline {6.8}{\ignorespaces Errores de los conjuntos test y training para 500 iteraciones\relax }}{74}{table.caption.201}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

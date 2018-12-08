@@ -88,19 +88,7 @@ Dentro de las redes LSTM usaremos el esquema sin Dropout(\ref{LSTMESQUEMA}) y co
 \subsection{2 capas LSTM y 2 Dropout}
 Adicionalmente se diseño una red con más de 2 capas LSTM para realizar las tareas de reconocimiento de voz. El esquema de esta red puede ser encontrado en \ref{2LSTMESQUEMA} y la implementación puede ser visto en el código \ref{2LSTM2DROPCODE} del Apéndice.
 
-\subsubsection{Categorical Crossentropy}
 
-Para entrenamiento de nuestro modelos usaremos categorical crossentropy como nuestra función de perdida.
-	\begin{equation}
-\label{CCE}
-\begin{aligned}
-CCE=-\frac{1}{N}\sum_{i=0}^{N}\sum_{j=0}^{J} y_{j}\log(\hat{y_{j}})+(1-y_{j})\log(1-\hat{y_{j}})
-\end{aligned}
-\end{equation}
-\begin{itemize}
-	\item N: cantidad del conjunto training
-	\item J: cantidad de clases
-\end{itemize}
 
 \subsubsection{Adam}
 Como algoritmo de optimización utilizaremos Adam, calcula una tasa de aprendizaje adaptativo para cada parámetro y es usado para optimizar la gradiente de descenso.
