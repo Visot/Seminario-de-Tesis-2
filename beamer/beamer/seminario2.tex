@@ -1,0 +1,202 @@
+\documentclass{beamer}
+\usepackage{tikz}
+\usepackage{smartdiagram}
+\usepackage{xmpmulti}
+\usepackage{pgfpages}
+
+
+%\setbeameroption{show notes}
+%\setbeameroption{show notes on second screen=right}
+\mode<presentation> {
+  \usetheme{Warsaw}
+  % ou autre ...
+
+  \setbeamercovered{transparent}
+  % ou autre chose (il est Ã©galement possible de supprimer cette ligne)
+}
+
+
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\pgfdeclareimage[height=1cm]{le-logo}{logouni}
+\logo{\pgfuseimage{le-logo}}
+\setbeamertemplate{footline}[frame number]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[Redes LSTM para el reconocimiento de voz
+aplicado a un conjunto de dígitos] 
+{Redes LSTM para el reconocimiento de voz
+	aplicado a un conjunto de dígitos}
+%\subtitle {ne complÃ©ter que si l'article possÃ¨de un sous-titre}
+
+\author[Víctor Jesús Sotelo Chico] 
+{Victor Jesus Sotelo Chico\inst{1}}
+
+\institute[]
+{
+  \inst{1}%
+  Universidad Nacional de Ingeniería\\
+
+  }
+
+\date[Seminario de Tesis II] 
+{Seminario de Tesis II}
+
+
+
+\begin{document}
+
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Contenido}
+  \tableofcontents
+\end{frame}
+
+\section{Introducción}
+\begin{frame}{Introducción}
+	Las señales de voz proveen una gran cantidad de información a través del tiempo, el estudio de estas ha permitido el desarrollo de sistemas de reconocimiento de voz.
+
+\end{frame}
+\section{Objetivos}
+
+\begin{frame}{Objetivos}
+  %\includegraphics[scale=0.3, angle=-90]{construction-process}
+  \begin{itemize}
+  	\item Conocer el proceso involucrado en el habla humana.
+	\item Estudiar procesamiento de las señales de voz.
+	 \item Diseñar una red neuronal capaz de reconocer un conjunto de audios de números.
+	\item Mostrar los resultados obtenidos y explicarlos basándonos en la teoría estudiada.
+  \end{itemize}
+\end{frame}
+
+
+\section{Marco Teórico}
+
+\subsection{Redes Neuronales}
+\begin{frame}{Redes Neuronales Artificiales}
+Estas redes toman como inspiración la arquitectura
+del cerebro para la construcción de sistemas inteligente.
+Actualmente son la base para el desarrollo de la inteligencia artificial.
+
+\end{frame}
+\begin{frame}{Comparación neuronas biológicas y artificiales}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\textwidth]{figures/ANN.png}
+		\caption{Redes neuronales biológicas y artificiales }
+			\label{neuronas}
+	\end{figure} 
+\end{frame}
+
+\begin{frame}{Redes neuronales Prealimentadas}
+Es un tipo de red neuronal más simple que existe. Esta red puede clasificarse en:
+
+\begin{itemize}
+	\item Perceptron simple
+	\item Perceptron Multicapas
+	\item Redes neuronales convolucionales
+\end{itemize}
+\end{frame}
+\begin{frame}{Esquema Redes neuronales Prealimentadas}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\textwidth]{figures/esquemaff.png}
+	\caption{Esquema de Redes Neuronales Prealimentadas }
+	\label{neuronasredes}
+\end{figure} 
+\end{frame}
+\begin{frame}{Back Propagation}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{figures/backp.png}
+		\caption{Propagación hacia atrás}
+		\label{backpropagation}
+	\end{figure} 
+\end{frame}
+\begin{frame}{Redes Neuronales Convolucionales(CNN)}
+Las CNN son un tipo de redes neuronales especiales para procesar datos
+como imágenes. La primera CNN fue creada por Yann LeCun. 
+
+\end{frame}
+
+\begin{frame}{Capas de una red neuronal convolucional}
+	\begin{itemize}
+		\item Input Layer
+		\item Convolutional Layer
+		\item Pooling Layer
+		\item Fully Conected Layer
+		\item Output Layer
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Redes LSTM}
+Las Redes LSTM o Long Short Term Memory son un tipo de redes neuronales recurrentes.
+
+
+\section{Métodos de Optimización}
+
+\begin{frame}{Gradiente de Descenso}
+	La gradiente de descenso es una forma de minimizar la función de costo $J(\theta)$ parametrizada por los parámetros $\theta \in\Re^{d}$.
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{figures/gd.png}
+		\caption{Gradiente de descenso}
+		\label{image}
+	\end{figure}
+\end{frame}
+\begin{frame}{Variantes de la Gradiente de Descenso}
+	Existen 3 variantes de la gradiente de descenso:
+	\begin{itemize}
+		\item Batch gradient descent
+		\item Stochastic gradient descent
+		\item Mini-batch gradient descent
+	\end{itemize}
+
+\end{frame}
+
+
+\section{Conclusiones y Trabajos Futuros}
+
+\begin{frame}{Conclusiones}
+	\begin{itemize}
+		\item Los métodos de optimización Adam y RMSprop obtuvieron los mejores
+		resultados de precisión en ambas pruebas.
+		\item A pesar de que el método de optimización Adam fue propuesto a partir
+		del RMSprop. Adam fue superado en algunas de pruebas realizadas.
+		\item Adam es el método que tiene un decaimiento más acelerado al calcular el
+		error en la función de costo cross-entropy.
+
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Conclusiones}
+	\begin{itemize}
+		\item Entre los métodos adaptativos Adam, RMSprop y Adagrad . Solo este
+		último obtuvo los peores resultados, esto se debió a su dificultad de
+		trabajar con la suma de las gradientes al cuadrado lo cual poco a poco
+		redujo su tasa de aprendizaje.
+		\item El RMSprop como una mejora del Adagrad, obtuvó mejores resultados
+		que este último. Esto debido a que RMSprop trabaja con el promedio
+		de la raíz de la gradiente anterior y tasas de decaimiento para controlar
+		el problema de la disminución de la tasa de aprendizaje del método
+		Adagrad.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Trabajos Futuro}
+	\begin{itemize}
+		\item Correcto diseño de una red neuronal convolucional.
+		\item Obtener resultados con distintos hardwares.
+		\item Realizar una implementación más interactiva.
+	\end{itemize}
+\end{frame}
+
+\end{document}
