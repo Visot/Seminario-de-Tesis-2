@@ -1,9 +1,15 @@
-\beamer@endinputifotherversion {3.36pt}
-\select@language {spanish}
+\babel@toc {spanish}{}
 \beamer@sectionintoc {1}{Introducci\'on}{3}{0}{1}
-\beamer@sectionintoc {2}{Objetivos}{4}{0}{2}
-\beamer@sectionintoc {3}{Marco Te\'orico}{5}{0}{3}
-\beamer@subsectionintoc {3}{1}{Redes Neuronales}{5}{0}{3}
-\beamer@subsectionintoc {3}{2}{Redes LSTM}{12}{0}{3}
-\beamer@sectionintoc {4}{M\'etodos de Optimizaci\'on}{12}{0}{4}
-\beamer@sectionintoc {5}{Conclusiones y Trabajos Futuros}{15}{0}{5}
+\beamer@subsectionintoc {1}{1}{Introducci\'on}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Objetivos}{4}{0}{1}
+\beamer@sectionintoc {2}{Estado del Arte}{5}{0}{2}
+\beamer@sectionintoc {3}{Marco Te\'orico}{6}{0}{3}
+\beamer@subsectionintoc {3}{1}{Redes Neuronales Recurrentes}{6}{0}{3}
+\beamer@subsectionintoc {3}{2}{Algoritmo de extracci\'on de caracter\IeC {\'\i }sticas}{9}{0}{3}
+\beamer@sectionintoc {4}{Implementaci\'on}{11}{0}{4}
+\beamer@subsectionintoc {4}{1}{Implementaci\'on - Datos}{11}{0}{4}
+\beamer@subsectionintoc {4}{2}{Esquemas}{12}{0}{4}
+\beamer@sectionintoc {5}{Resultados}{15}{0}{5}
+\beamer@subsectionintoc {5}{1}{Resultados de pruebas previas}{15}{0}{5}
+\beamer@subsectionintoc {5}{2}{Resultados de modelo propuestos}{21}{0}{5}
+\beamer@sectionintoc {6}{Conclusiones y Trabajos Futuros}{23}{0}{6}

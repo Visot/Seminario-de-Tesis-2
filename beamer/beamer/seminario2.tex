@@ -3,8 +3,18 @@
 \usepackage{smartdiagram}
 \usepackage{xmpmulti}
 \usepackage{pgfpages}
-
-
+\usepackage{wrapfig} 
+\usepackage{float}
+\usepackage[caption = false]{subfig}
+\usepackage{graphicx}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{smartdiagram}
+\usepackage{colortbl}
+\usepackage{afterpage}
+\usepackage{multicol}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=4cm, minimum height=0.5cm,text centered, draw=black, fill=blue!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\usepackage{float}
 %\setbeameroption{show notes}
 %\setbeameroption{show notes on second screen=right}
 \mode<presentation> {
@@ -29,22 +39,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title[Redes LSTM para el reconocimiento de voz
 aplicado a un conjunto de dígitos] 
-{Redes LSTM para el reconocimiento de voz
+{Seminario de Tesis II \\
+	Redes LSTM para el reconocimiento de voz
 	aplicado a un conjunto de dígitos}
 %\subtitle {ne complÃ©ter que si l'article possÃ¨de un sous-titre}
 
 \author[Víctor Jesús Sotelo Chico] 
-{Victor Jesus Sotelo Chico\inst{1}}
+{Victor Jesus Sotelo Chico}
 
 \institute[]
 {
-  \inst{1}%
+  
   Universidad Nacional de Ingeniería\\
-
+  Facultad de Ciencias\\
+  Escuela Profesional de Ciencias de la Computación\\
+  Asesor: Dr. Antonio Morán Cardenas
   }
 
 \date[Seminario de Tesis II] 
-{Seminario de Tesis II}
+{17 Diciembre 2018}
 
 
 
@@ -60,143 +73,310 @@ aplicado a un conjunto de dígitos]
 \end{frame}
 
 \section{Introducción}
+\subsection{Introducción}
 \begin{frame}{Introducción}
-	Las señales de voz proveen una gran cantidad de información a través del tiempo, el estudio de estas ha permitido el desarrollo de sistemas de reconocimiento de voz.
+	Las señales de voz proveen una gran cantidad de información a través del tiempo, el estudio de éstas ha permitido el desarrollo de sistemas de reconocimiento de voz.
 
 \end{frame}
-\section{Objetivos}
+\subsection{Objetivos}
 
 \begin{frame}{Objetivos}
   %\includegraphics[scale=0.3, angle=-90]{construction-process}
   \begin{itemize}
   	\item Conocer el proceso involucrado en el habla humana.
 	\item Estudiar procesamiento de las señales de voz.
+	\item Conocer las ventajas del uso de redes recurrentes.
 	 \item Diseñar una red neuronal capaz de reconocer un conjunto de audios de números.
 	\item Mostrar los resultados obtenidos y explicarlos basándonos en la teoría estudiada.
   \end{itemize}
 \end{frame}
 
+\section{Estado del Arte}
+\begin{frame}{Estado del arte}
+\begin{itemize}
+	\item Análisis de los algoritmos y aplicaciones en el reconocimiento de voz.
+	\item Reconocimiento de voz con redes recurrentes profundas.
+	\item Reconocimiento de voz usando las técnicas Mel Frequency Cepstral Coefficient
+	(MFCC) y Dynamic Time Warping (DTW).
+	\item Redes convolucionales para reconocimiento de voz.
+\end{itemize}
+\end{frame}
 
 \section{Marco Teórico}
 
-\subsection{Redes Neuronales}
-\begin{frame}{Redes Neuronales Artificiales}
-Estas redes toman como inspiración la arquitectura
-del cerebro para la construcción de sistemas inteligente.
-Actualmente son la base para el desarrollo de la inteligencia artificial.
 
-\end{frame}
-\begin{frame}{Comparación neuronas biológicas y artificiales}
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.6\textwidth]{figures/ANN.png}
-		\caption{Redes neuronales biológicas y artificiales }
-			\label{neuronas}
-	\end{figure} 
-\end{frame}
 
-\begin{frame}{Redes neuronales Prealimentadas}
-Es un tipo de red neuronal más simple que existe. Esta red puede clasificarse en:
 
+\subsection{Redes Neuronales Recurrentes}
+\begin{frame}{Redes neuronales recurrentes(RNN)}
+Este tipo de redes son utilizadas principalmente para tratar con una información de
+secuencia. Sin embargo presentan 2 problemas:
 \begin{itemize}
-	\item Perceptron simple
-	\item Perceptron Multicapas
-	\item Redes neuronales convolucionales
+	\item Problema de desaparición de gradiente.
+	\item Problema de las dependencias a largo plazo.
+\end{itemize}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{../../latexformato/Figures/rnn2}
+	\caption{Versión desenrollada - Fuente: \textit{http://colah.github.io}}
+	\label{fig:rnn2}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Redes LSTM(Long Short Term Memory)}
+Son un tipo de RNN que se encargan de transmitir la información de los lapsos de tiempo y recordarla. 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.28\linewidth]{figures/LSTM}
+	\caption{Esquema de una unidad LSTM - Fuente: \textit{http://colah.github.io}}
+	\label{fig:lstm}
+\end{figure}
+\begin{multicols}{2}
+\begin{itemize}
+	\item $X_{t}$: entrada actual
+	\item $\sigma$,  $tanh$: capas
+	\item $h_{t}$: salida en t .
+	\item $C_{t}$: memoria en t
+\end{itemize}
+\end{multicols}
+
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+	\item Forget Layer\\
+	$f_{t}=\sigma(W_{t}\cdot[h_{t-1},x_{t}]+b_{f})$
+	\item Input Layer\\
+	$i_{t}=\sigma(W_{i}\cdot[h_{t-1},x_{t}]+b_{i})$
+	\item Vector de valores posibles\\
+	$\hat{C}_{t}=\sigma(W_{C}\cdot[h_{t-1},x_{t}]+b_{C})$
+	\item Actualización de celda de estado\\
+	$C_{t}=f_{t}\ast C_{t-1} + i_{t}\ast \hat{C}_{t}$
+	\item Unidades ocultas\\
+	$o_{t}=\sigma(W_{o}[h_{t-1},x_{t}]+b_{o})$\\
+	$h_{t}=o_{t}\ast \tanh(C_{t})$
 \end{itemize}
 \end{frame}
-\begin{frame}{Esquema Redes neuronales Prealimentadas}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\textwidth]{figures/esquemaff.png}
-	\caption{Esquema de Redes Neuronales Prealimentadas }
-	\label{neuronasredes}
-\end{figure} 
+
+
+
+
+\subsection{Algoritmo de extracción de características}
+\begin{frame}{Mel Frequency Cepstral Coefficients (MFCC)}
+Es el algoritmo más usado en la extracción de características de una señal de voz. Posee las siguientes etapas:
+\begin{itemize}
+	\item Pre-emphasis
+	\item Framing
+	\item Hamming windowing
+	\item Transformada rápida de Fourier (FFT)
+	\item Mel filter bank
+	\item Discrete Cosine Transform(DCT)
+\end{itemize}
+
 \end{frame}
-\begin{frame}{Back Propagation}
+\begin{frame}{MFCC}
 	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.8\textwidth]{figures/backp.png}
-		\caption{Propagación hacia atrás}
-		\label{backpropagation}
-	\end{figure} 
-\end{frame}
-\begin{frame}{Redes Neuronales Convolucionales(CNN)}
-Las CNN son un tipo de redes neuronales especiales para procesar datos
-como imágenes. La primera CNN fue creada por Yann LeCun. 
-
-\end{frame}
-
-\begin{frame}{Capas de una red neuronal convolucional}
-	\begin{itemize}
-		\item Input Layer
-		\item Convolutional Layer
-		\item Pooling Layer
-		\item Fully Conected Layer
-		\item Output Layer
-	\end{itemize}
-	
-\end{frame}
-
-\subsection{Redes LSTM}
-Las Redes LSTM o Long Short Term Memory son un tipo de redes neuronales recurrentes.
-
-
-\section{Métodos de Optimización}
-
-\begin{frame}{Gradiente de Descenso}
-	La gradiente de descenso es una forma de minimizar la función de costo $J(\theta)$ parametrizada por los parámetros $\theta \in\Re^{d}$.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.6\textwidth]{figures/gd.png}
-		\caption{Gradiente de descenso}
-		\label{image}
+		\begin{centering}
+			\subfloat[{\tiny Pre-emphasis\\ Fuente:\textit{www.researchgate.net}}]{\includegraphics[width=0.25\textwidth]{figures/emphasis}}
+			\hspace{3cm}
+			\subfloat[{\tiny Framming\\ Fuente:\textit{www.slideshare.net}}]{\includegraphics[width=0.25\textwidth]{figures/framing}}\\
+			\subfloat[{\tiny Hamming windowing\\ Fuente:\textit{www.slideshare.net}} ]{\includegraphics[width=0.25\textwidth]{figures/hamming}}
+			\hspace{3cm}
+			\subfloat[{\tiny Mel filter bank\\ Fuente: \textit{https://www.researchgate.net}}]{\includegraphics[width=0.25\textwidth]{figures/melfilter}} 
+			\label{some example0}
+		\end{centering}
 	\end{figure}
 \end{frame}
-\begin{frame}{Variantes de la Gradiente de Descenso}
-	Existen 3 variantes de la gradiente de descenso:
-	\begin{itemize}
-		\item Batch gradient descent
-		\item Stochastic gradient descent
-		\item Mini-batch gradient descent
-	\end{itemize}
+
+
+\section{Implementación}
+\subsection{Implementación - Datos}
+\begin{frame}{Datos}
+Para este trabajo se recolecto muestras de hablantes 7 varones y 5 mujeres. 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\linewidth]{figures/tablee}
+	\caption{División del conjunto en base a la cantidad de
+		audios con voces femeninas y masculinas - Fuente:\textit{Elaboración propia}}
+	\label{fig:tablee}
+\end{figure}
 
 \end{frame}
 
 
+\subsection{Esquemas}
+\begin{frame}{Esquema de pruebas}
+		\begin{figure}[H]
+		\begin{centering}
+			\subfloat[RNN simple]{\includegraphics[height=0.35\textwidth]{figures/rnn_scheme}}
+			\hspace{1cm}		\subfloat[LSTM simple]{\includegraphics[height=0.35\textwidth]{figures/lstm_simple}}
+			\hspace{1cm}
+			\subfloat[LSTM con dropout]{\includegraphics[height=0.35\textwidth]{figures/lstm_dobe}}
+			\caption{Esquemas de prueba - Fuente:\textit{Elaboración propia}}
+			\label{some example0s}
+		\end{centering}
+	\end{figure}
+\end{frame}
+\begin{frame}{Esquema Propuesto}
+
+\begin{figure}[H]
+	\begin{center}
+		\begin{tikzpicture}[node distance=0.8cm]
+		\node (i1) [startstop] {Input Layer};
+		\node (i2) [startstop, below of=i1] {LSTM Layer};
+		\node (i3) [startstop, below of=i2] {Dropout};
+		\node (i4) [startstop, below of=i3] {LSTM Layer};
+		\node (i5) [startstop, below of=i4] {Dropout};
+		\node (i6) [startstop, below of=i5] {Dense Layer};
+		\node (i7) [startstop, below of=i6] {Output Layer};
+		\draw [arrow] (i1) -- (i2) ;
+		\draw [arrow] (i2) -- (i3);
+		\draw [arrow] (i3) -- (i4);
+		\draw [arrow] (i4) -- (i5);
+		\draw [arrow] (i5) -- (i6);
+		\draw [arrow] (i6) -- (i7);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Esquema propuesto - Fuente: \textit{Elaboración propia}}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Librerías utilizadas}
+\begin{itemize}
+	\item \textbf{LibROSA}: Librería usada para la extracción de características MFCC.
+	\item \textbf{Tensorflow}: Usado para la distribución del entrenamiento en la GPU.
+	\item \textbf{Keras}: Utilizado para el diseño de las redes recurrentes.
+	\item \textbf{Sklearn}: Aplica one hot encoding a nuestras variables categóricas.
+\end{itemize}
+\end{frame}
+
+\section{Resultados}
+\subsection{Resultados de pruebas previas}
+\begin{frame}{Resultados 64 unidades ocultas}
+\begin{figure}[H]
+	\begin{centering}
+		\subfloat[RNN simple]{\includegraphics[width=0.3\textwidth]{figures/rnn_64_prec}}
+		\hspace{3cm}
+		\subfloat[LSTM simple]{\includegraphics[width=0.3\textwidth]{figures/lstm13_64_prec}}\\
+		\subfloat[LSTM dropout 0.5]{\includegraphics[width=0.3\textwidth]{figures/lstm_64_05_prec}}
+		\hspace{3cm}
+		\subfloat[LSTM dropout 0.8]{\includegraphics[width=0.3\textwidth]{figures/lstm_64_08_prec}} 
+		\caption{Resultados 64 unidades ocultas - Fuente:\textit{Elaboración propia}}
+		\label{some examples0}
+	\end{centering}
+\end{figure}
+\end{frame}
+\begin{frame}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{figures/table64}
+		\caption{Resultados 64 unidades ocultas  300 iteraciones - Fuente:\textit{Elaboración propia}}
+		\label{fig:table64}
+	\end{figure}
+\end{frame}
+\begin{frame}{Resultados 128 unidades ocultas}
+\begin{figure}[H]
+	\begin{centering}
+		\subfloat[RNN simple]{\includegraphics[width=0.3\textwidth]{figures/rnn_prec_400_13mfcc}}
+		\hspace{3cm}
+		\subfloat[LSTM simple]{\includegraphics[width=0.3\textwidth]{figures/lstm_400_prec_13mfcc}}\\
+		\subfloat[LSTM dropout 0.5]{\includegraphics[width=0.3\textwidth]{figures/lstm_400drop05_prec_13mfcc}}
+		\hspace{3cm}
+		\subfloat[LSTM dropout 0.8]{\includegraphics[width=0.3\textwidth]{figures/lstm_400drop08_prec_13mfcc}} 
+		\caption{Resultados 128 unidades ocultas - Fuente:\textit{Elaboración propia}}
+		\label{some example2s0}
+	\end{centering}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figures/table128}
+	\caption{Resultados 128 unidades ocultas 300 iteraciones - Fuente:\textit{Elaboración propia}}
+	\label{fig:table128}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Resultados 256 unidades ocultas}
+\begin{figure}[H]
+	\begin{centering}
+		\subfloat[RNN simple]{\includegraphics[width=0.3\textwidth]{figures/rnn_256_prec}}
+		\hspace{3cm}
+		\subfloat[LSTM simple]{\includegraphics[width=0.3\textwidth]{figures/lstm_256_prec13}}\\
+		\subfloat[LSTM dropout 0.5]{\includegraphics[width=0.3\textwidth]{figures/lstm5_256_13prec}}
+		\hspace{3cm}
+		\subfloat[LSTM dropout 0.8]{\includegraphics[width=0.3\textwidth]{figures/lst_256_13prec}} 
+		\caption{Resultados 256 unidades ocultas - Fuente:\textit{Elaboración propia}}
+		\label{some exampsle2s0}
+	\end{centering}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{figures/table256}
+	\caption{Resultados 256 unidades ocultas con 300 iteraciones - Fuente:\textit{Elaboración propia}}
+	\label{fig:table256t}
+\end{figure}
+\end{frame}
+
+\subsection{Resultados de modelo propuestos}
+\begin{frame}{Resultados del modelo propuesto}
+
+\begin{figure}[!htb]
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{figures/model64}
+		\caption{Precisión 64 unidades ocultas - Fuente:\textit{Elaboración propia}}\label{Fig:Data1}
+	\end{minipage}\hfill
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{figures/model128}
+		\caption{Precisión 128 unidades ocultas - Fuente:\textit{Elaboración propia}}\label{Fig:Data2}
+	\end{minipage}
+\end{figure}
+\end{frame}
+\begin{frame}{Tabla de resultados}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\linewidth]{figures/propuesta_precision}
+		\caption{Resultados de precisión 2 capas LSTM con 500 iteraciones - Fuente:\textit{Elaboración propia}}
+		\label{fig:propuestaprecision}
+	\end{figure}
+	
+\end{frame}
 \section{Conclusiones y Trabajos Futuros}
 
 \begin{frame}{Conclusiones}
 	\begin{itemize}
-		\item Los métodos de optimización Adam y RMSprop obtuvieron los mejores
-		resultados de precisión en ambas pruebas.
-		\item A pesar de que el método de optimización Adam fue propuesto a partir
-		del RMSprop. Adam fue superado en algunas de pruebas realizadas.
-		\item Adam es el método que tiene un decaimiento más acelerado al calcular el
-		error en la función de costo cross-entropy.
+		\item El uso 2 capas LSTM y dropout de 0.4 mejoran el rendimiento de nuestro
+		modelo además manejar mejor el problema de overfitting.
+		\item Las redes LSTM obtuvieron mejores resultados contra el RNN simple
+		debido a su capacidad de manejar el problema de desaparición de
+		gradiente.
+		\item El número de estados ocultos puede acelerar el proceso de entrenamiento
+		pero puede generar efectos de overfitting.
 
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Conclusiones}
 	\begin{itemize}
-		\item Entre los métodos adaptativos Adam, RMSprop y Adagrad . Solo este
-		último obtuvo los peores resultados, esto se debió a su dificultad de
-		trabajar con la suma de las gradientes al cuadrado lo cual poco a poco
-		redujo su tasa de aprendizaje.
-		\item El RMSprop como una mejora del Adagrad, obtuvó mejores resultados
-		que este último. Esto debido a que RMSprop trabaja con el promedio
-		de la raíz de la gradiente anterior y tasas de decaimiento para controlar
-		el problema de la disminución de la tasa de aprendizaje del método
-		Adagrad.
+		\item El algoritmo MFCC permite extraer las características necesarias para el
+		procesamiento de la señal de voz.
+		\item Los audios con distintos tiempos incrementan el número de lapsos
+		tiempos en que desenrolla la red lo cual impide una mejor precisión.
+		\item La cantidad de epochs requeridos es menor en las redes con una sola capa
+		LSTM pero estas tienden a caer en problemas de overfitting.
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Trabajos Futuro}
-	\begin{itemize}
-		\item Correcto diseño de una red neuronal convolucional.
-		\item Obtener resultados con distintos hardwares.
-		\item Realizar una implementación más interactiva.
-	\end{itemize}
+		En futuros trabajos se tratara de construir sistema de reconocimiento para más
+		palabras además de permitir reconocer un lenguaje básico de modo que la red reconozca oraciones completas.
 \end{frame}
 
 \end{document}

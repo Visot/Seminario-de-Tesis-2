@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  6 DEC 2018 14:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.15)  16 DEC 2018 22:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -5984,15 +5984,9 @@ LaTeX Info: Redefining \% on input line 26.
 )
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 189.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 189.
+Package rerunfilecheck Info: File `main_victor.out' has not changed.
+(rerunfilecheck)             Checksum: E5E9B47E965C2C68E2C2E9DF61A1A641;21653.
 
-
-Package rerunfilecheck Warning: File `main_victor.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main_victor.out':
-(rerunfilecheck)             Before: 90FB07E1C9B4DD99E11231876CD03665;21769
-(rerunfilecheck)             After:  E5E9B47E965C2C68E2C2E9DF61A1A641;21653.
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -6004,7 +5998,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  46454 strings out of 492982
  881224 string characters out of 6134895
- 1041931 words of memory out of 5000000
+ 1041909 words of memory out of 5000000
  48834 multiletter control sequences out of 15000+600000
  578075 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -6024,7 +6018,7 @@ sy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr
 ve/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/urw/palatino/uplri8a.pfb>
-Output written on main_victor.pdf (104 pages, 2942611 bytes).
+Output written on main_victor.pdf (104 pages, 2942513 bytes).
 PDF statistics:
  1758 PDF objects out of 2073 (max. 8388607)
  1475 compressed objects within 15 object streams
